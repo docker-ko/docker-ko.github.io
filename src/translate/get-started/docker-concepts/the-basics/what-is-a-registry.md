@@ -19,7 +19,7 @@ Docker Hub는 인기 있는 옵션이지만, 요즘엔 [Amazon Elastic Container
 레지스트리는 컨테이너 이미지를 저장하고 관리하는 중앙 집중식 위치인 반면, 리포지토리는 레지스트리 내의 관련 컨테이너 이미지 모음입니다. 프로젝트를 기반으로 이미지를 구성하는 폴더라고 생각하면 됩니다. 각 리포지토리에는 하나 이상의 컨테이너 이미지가 포함되어 있습니다.
 
 다음 다이어그램은 레지스트리, 리포지토리 및 이미지 간의 관계를 보여줍니다.
-![repo-registry-relation](/imgs/get-started/the-basics/repo-registry-rel.png)
+![repo-registry-relation](/assets//get-started/the-basics/repo-registry-rel.png)
 
 > ### Note!
 >
