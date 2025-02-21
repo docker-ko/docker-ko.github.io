@@ -94,4 +94,4 @@ React, Python API, PostgreSQL DB를 주요 기술 스택으로 사용한다고 �
 
 이제 도커 컨테이너의 기본을 배웠으니 도커 이미지에 대해 배울 차례입니다.
 
-[What is an image?](#/get-started/docker-concepts/the-basics/what-is-an-image/)
+[What is an image?](#/get-started/docker-concepts/the-basics/what-is-an-image)
