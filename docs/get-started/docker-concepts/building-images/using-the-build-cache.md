@@ -4,7 +4,7 @@
 
 ## Explanation
 
-여러분이 만들었던 [getting-started](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/) 앱을 위해 생성한 Dockerfile을 고려해보겠습니다.
+여러분이 만들었던 [getting-started](#/get-started/docker-concepts/building-images/writing-a-dockerfile/) 앱을 위해 생성한 Dockerfile을 고려해보겠습니다.
 
 ```dockerfile
 FROM node:20-alpine
@@ -202,4 +202,4 @@ Dockerfile을 작성하거나 편집할 때 불필요한 캐시 누락을 피하
 
 이제 Docker 빌드 캐시를 효과적으로 사용하는 방법을 이해했으므로 다중 단계 빌드에 대해 알아볼 준비가 되었습니다.
 
-[Multi-stage builds](/docs/get-started/docker-concepts/building-images/multi-stage-builds.md)
+[Multi-stage builds](#/get-started/docker-concepts/building-images/multi-stage-builds.md)

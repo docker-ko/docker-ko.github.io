@@ -192,10 +192,10 @@ docker push my-username/my-image
 - [docker build reference](https://docs.docker.com/engine/reference/commandline/image_build/)
 - [docker image tag reference](https://docs.docker.com/engine/reference/commandline/image_tag/)
 - [docker push reference](https://docs.docker.com/engine/reference/commandline/image_push/)
-- [What is a registry?](/docs/get-started/docker-concepts/the-basics/what-is-a-registry.md)
+- [What is a registry?](#/get-started/docker-concepts/the-basics/what-is-a-registry.md)
 
 ## Next steps
 
 이제 이미지를 빌드하고 게시하는 방법을 알았으니 Docker 빌드 캐시를 사용하여 빌드 프로세스 속도를 높이는 방법을 알아보겠습니다.
 
-[Using the build cache](/docs/get-started/docker-concepts/building-images/using-the-build-cache.md)
+[Using the build cache](#/get-started/docker-concepts/building-images/using-the-build-cache.md)

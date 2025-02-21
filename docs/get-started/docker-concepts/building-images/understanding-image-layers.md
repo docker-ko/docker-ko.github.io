@@ -4,7 +4,7 @@
 
 ## Explanation
 
-[What is an image?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)에서 학습했듯이, 컨테이너 이미지는 레이어로 구성됩니다. 그리고 이러한 각 레이어는 일단 생성되면 불변성을 갖습니다. 하지만 실제로는 무슨 뜻일까요? 그리고 이러한 레이어는 컨테이너가 사용할 수 있는 파일 시스템을 만드는 데 어떻게 사용될까요?
+[What is an image?](#/get-started/docker-concepts/the-basics/what-is-an-image/)에서 학습했듯이, 컨테이너 이미지는 레이어로 구성됩니다. 그리고 이러한 각 레이어는 일단 생성되면 불변성을 갖습니다. 하지만 실제로는 무슨 뜻일까요? 그리고 이러한 레이어는 컨테이너가 사용할 수 있는 파일 시스템을 만드는 데 어떻게 사용될까요?
 
 ### Image layers
 
@@ -36,7 +36,7 @@
 
 ## Try it out
 
-이 실습 가이드에서는 [`docker container commit`](https://docs.docker.com/reference/cli/docker/container/commit/) 명령어를 사용하여 수동으로 새로운 이미지 레이어를 생성합니다. 일반적으로는 [Dockerfile을 사용](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)하지만, 이 방법은 작동 방식을 이해하는 데 도움이 됩니다.
+이 실습 가이드에서는 [`docker container commit`](https://docs.docker.com/reference/cli/docker/container/commit/) 명령어를 사용하여 수동으로 새로운 이미지 레이어를 생성합니다. 일반적으로는 [Dockerfile을 사용](#/get-started/docker-concepts/building-images/writing-a-dockerfile/)하지만, 이 방법은 작동 방식을 이해하는 데 도움이 됩니다.
 
 ### Create a base image
 
@@ -177,4 +177,4 @@
 
 대부분의 이미지 빌드는 `docker container commit`을 사용하지 않고, Dockerfile을 사용합니다. Dockerfile은 이러한 단계를 자동화합니다.
 
-[Writing a Dockerfile](/get-started/docker-concepts/building-images/writing-a-dockerfile/)
+[Writing a Dockerfile](#/get-started/docker-concepts/building-images/writing-a-dockerfile/)

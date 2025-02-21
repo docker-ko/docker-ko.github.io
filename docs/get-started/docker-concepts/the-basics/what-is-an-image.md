@@ -4,7 +4,7 @@
 
 ## Explanation
 
-[container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)를 보는 것은 고립된 프로세스인데, 컨테이너의 파일과 구성은 어디서 얻나요? 이러한 환경을 어떻게 공유하나요?
+[container](#/get-started/docker-concepts/the-basics/what-is-a-container/)를 보는 것은 고립된 프로세스인데, 컨테이너의 파일과 구성은 어디서 얻나요? 이러한 환경을 어떻게 공유하나요?
 
 바로 여기서 컨테이너 이미지가 등장합니다. 컨테이너 이미지는 컨테이너를 실행하기 위한 모든 파일, 바이너리, 라이브러리 및 구성을 포함하는 표준화된 패키지입니다.
 
@@ -68,4 +68,4 @@
 
 이제 이미지의 기본을 배웠으니 레지스트리를 통해 이미지를 배포하는 방법을 배울 차례입니다.
 
-[What is a registry?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry/)
+[What is a registry?](#/get-started/docker-concepts/the-basics/what-is-a-registry/)

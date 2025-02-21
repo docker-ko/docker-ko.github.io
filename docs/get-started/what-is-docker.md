@@ -101,5 +101,5 @@ Docker는 [Go 프로그래밍 언어](https://golang.org/)로 작성되었으며
 
 ## Next steps
 
-- [도커 설치하기](/get-started/get-docker)
-- [도커 시작하기](/get-started/introduction)
+- [도커 설치하기](#/get-started/get-docker)
+- [도커 시작하기](#/get-started/introduction)

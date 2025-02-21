@@ -119,7 +119,7 @@ CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080" ]
 
 ## 새로운 프로젝트를 신속하게 컨테이너화하기
 
-`docker init` 명령어를 사용하면 프로젝트를 분석하고 Dockerfile, `compose.yaml`, `.dockerignore` 파일을 신속하게 생성하여 바로 시작할 수 있습니다. 여기서는 Dockerfile을 배우는 것이 목적이므로, 지금은 사용하지 않겠습니다. 자세한 내용은 [여기](https://docs.docker.com/get-started/docker-concepts/building-images/docker-init/)를 참조하세요.
+`docker init` 명령어를 사용하면 프로젝트를 분석하고 Dockerfile, `compose.yaml`, `.dockerignore` 파일을 신속하게 생성하여 바로 시작할 수 있습니다. 여기서는 Dockerfile을 배우는 것이 목적이므로, 지금은 사용하지 않겠습니다. 자세한 내용은 [여기](https://docs.docker.com/reference/cli/docker/init/)를 참조하세요.
 
 ## Additional resources
 
@@ -128,10 +128,10 @@ Dockerfile 작성에 대해 더 알아보려면 다음 리소스를 참조하세
 - [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)
 - [Dockerfile 모범 사례](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [베이스 이미지](https://docs.docker.com/develop/develop-images/baseimages/)
-- [Docker Init 시작하기](https://docs.docker.com/get-started/docker-concepts/building-images/docker-init/)
+- [Docker Init 시작하기](https://docs.docker.com/reference/cli/docker/init/)
 
 ## Next steps
 
 이제 Dockerfile을 생성하고 기본 사항을 배웠으니, 이미지를 빌드하고 태그를 지정하며 푸시하는 방법을 배우십시오.
 
-[Build, tag, and publish an image](/get-started/docker-concepts/building-images/build-tag-and-publish-an-image)
+[Build, tag, and publish an image](#/get-started/docker-concepts/building-images/build-tag-and-publish-an-image)
