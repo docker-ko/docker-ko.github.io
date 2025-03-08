@@ -126,7 +126,7 @@ Docker Desktop Dashboard는 모든 볼륨의 내용을 볼 수 있는 기능과 
 $ docker rm -f new-db
 ```
 
-볼륨을 제거하는 방법은 다음과 같습니다:
+볼륨을 제거하는 데에는 다음과 같이 몇 가지 방법이 있습니다:
 
 - Docker Desktop Dashboard에서 볼륨의 **Delete Volume** 옵션을 선택하세요.
 - `docker volume rm` 명령어를 사용합니다:
