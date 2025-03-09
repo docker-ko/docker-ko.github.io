@@ -163,4 +163,4 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
 
 이제 컨테이너와 로컬 파일을 공유하는 방법을 알았으니, 다중 컨테이너 애플리케이션에 대해 알아볼 차례입니다.
 
-[Multi-container applications](#/get-started/docker-concepts/running-containers/multi-container-applications.md)
+[Multi-container applications](#/get-started/docker-concepts/running-containers/multi-container-applications)
