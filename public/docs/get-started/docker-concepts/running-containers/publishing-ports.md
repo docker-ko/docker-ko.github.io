@@ -102,4 +102,4 @@ services:
 
 이제 컨테이너 포트를 공개하고 노출하는 방법을 이해했으니, 다음으로 컨테이너 기본값을 재정의하는 방법을 알아보겠습니다.
 
-- [컨테이너 기본값 재정의](#/get-started/docker-concepts/running-containers/publishing-ports.md)
+- [컨테이너 기본값 재정의](#/get-started/docker-concepts/running-containers/publishing-ports)
