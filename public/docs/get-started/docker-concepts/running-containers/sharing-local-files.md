@@ -6,15 +6,15 @@
 
 각 컨테이너는 호스트 머신에 미리 설치된 종속성에 의존하지 않고도 작동하는 데 필요한 모든 것을 갖추고 있습니다. 컨테이너는 격리되어 실행되므로 호스트와 다른 컨테이너에 미치는 영향이 최소화됩니다. 이러한 격리에는 주요 이점이 있습니다: 컨테이너는 호스트 시스템 및 다른 컨테이너와의 충돌을 최소화합니다. 그러나, 이러한 격리는 컨테이너가 기본적으로 호스트 머신의 데이터에 직접 액세스할 수 없음을 의미하기도 합니다.
 
-호스트 시스템의 파일에 저장된 구성 설정에 액세스해야 하는 웹 애플리케이션 컨테이너가 있는 시나리오를 생각해보세요. 이 파일에는 데이터베이스 자격 증명이나 API 키와 같은 중요한 데이터가 포함될 수 있습니다. 이러한 중요한 정보를 컨테이너 이미지에 직접 저장하면 특히 이미지 공유 중에 보안 위험이 발생합니다. 이러한 과제를 해결하기 위해 Docker는 컨테이너 격리와 호스트 머신의 데이터 간의 격차를 메우는 스토리지 옵션을 제공합니다.
+호스트 시스템의 파일에 저장된 구성 설정에 액세스해야 하는 웹 애플리케이션 컨테이너가 있는 시나리오를 생각해보세요. 이 파일에는 데이터베이스 자격 증명이나 API 키와 같은 중요한 데이터가 포함될 수 있습니다. 이러한 중요한 정보를 컨테이너 이미지에 직접 저장하면, 특히 이미지 공유 중에 보안 위험이 발생합니다. 이러한 과제를 해결하기 위해 Docker는 컨테이너 격리와 호스트 머신의 데이터 간의 격차를 메우는 스토리지 옵션을 제공합니다.
 
 Docker는 호스트 머신과 컨테이너 간에 데이터를 유지하고 파일을 공유하기 위한 두 가지 기본 스토리지 옵션을 제공합니다: 볼륨과 바인드 마운트
 
 ### Volume versus bind mounts
 
-컨테이너 내부에서 생성되거나 수정된 ​​데이터가 컨테이너 실행이 중지된 후에도 지속되도록 하려면 볼륨을 선택합니다. 볼륨과 사용 사례에 대해 자세히 알아보려면 [컨테이너 데이터 지속](#/get-started/docker-concepts/running-containers/persisting-container-data.md)을 참조하세요.
+컨테이너 내부에서 생성되거나 수정된 ​​데이터를 컨테이너 실행이 중지된 후에도 지속되도록 하려면 볼륨을 사용합니다. 볼륨과 사용 사례에 대해 자세히 알아보려면 [컨테이너 데이터 지속](#/get-started/docker-concepts/running-containers/persisting-container-data.md)을 참조하세요.
 
-구성 파일이나 개발 코드와 같이 컨테이너와 직접 공유하려는 호스트 시스템의 특정 파일이나 디렉토리가 있는 경우 바인드 마운트를 사용합니다. 호스트와 컨테이너 간에 공유를 위한 직접 포털을 여는 것과 같습니다. 바인드 마운트는 호스트와 컨테이너 간의 실시간 파일 액세스 및 공유가 중요한 개발 환경에 이상적입니다.
+구성 파일이나 개발 코드와 같이 컨테이너와 직접 공유하려는 호스트 시스템의 특정 파일이나 디렉토리가 있는 경우 바인드 마운트를 사용합니다. 이는 호스트와 컨테이너 간에 공유를 위한 직접 포털을 여는 것과 같습니다. 바인드 마운트는 호스트와 컨테이너 간의 실시간 파일 액세스 및 공유가 중요한 개발 환경에 이상적입니다.
 
 ### Sharing files between a host and container
 
@@ -76,7 +76,7 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
 
 ### Use a bind mount
 
-바인드 마운트를 사용하면 호스트 컴퓨터의 구성 파일을 컨테이너 내의 특정 위치에 매핑할 수 있습니다. 이 예에서는 바인드 마운트를 사용하여 웹 페이지의 모양과 느낌을 변경하는 방법을 살펴보겠습니다.
+바인드 마운트를 사용하면 호스트 컴퓨터의 구성 파일을 컨테이너 내의 특정 위치에 매핑할 수 있습니다. 이 예시에서는 바인드 마운트를 사용하여 웹 페이지의 모양과 느낌을 변경하는 방법을 살펴보겠습니다.
 
 1.  Docker Desktop Dashboard를 사용하여 기존 컨테이너를 삭제합니다:
     ![use-a-bind-mount](https://docs.docker.com/get-started/docker-concepts/running-containers/images/delete-httpd-container.webp)
@@ -84,7 +84,7 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
     ```bash
     $ mkdir public_html
     ```
-3.  새로 만든 디렉토리 `public_html`로 이동하여 다음 내용이 있는 `index.html`이라는 파일을 만듭니다. 이것은 친숙한 고래로 여러분을 환영하는 간단한 웹페이지를 만드는 기본 HTML 문서입니다.
+3.  새로 만든 디렉토리 `public_html`로 이동하여 다음 내용이 있는 `index.html`이라는 파일을 만듭니다. 이것은 친근한 고래가 여러분을 환영하는 간단한 웹페이지를 만드는 기본 HTML 문서입니다.
 
     ```html
     <!DOCTYPE html>
@@ -128,7 +128,7 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
     >
     > Windows PowerShell에서 `-v` 또는 `--mount` 플래그를 사용할 때는 `./` 대신 디렉토리의 절대 경로를 제공해야 합니다. 이는 PowerShell이 ​​bash(Mac 및 Linux 환경에서 일반적으로 사용됨)와 다르게 상대 경로를 처리하기 때문입니다.
 
-    이제 모든 것이 정상적으로 작동하므로 [http://localhost:8080](http://localhost:8080/)을 통해 사이트에 접속하여 친숙한 고래가 환영해주는 새로운 웹페이지를 찾을 수 있을 것입니다.
+    이제 모든 것이 정상적으로 실행되고 있으므로, [http://localhost:8080](http://localhost:8080/)을 통해 사이트에 접속하여 친근한 고래가 환영해주는 새로운 웹페이지를 확인할 수 있습니다.
 
 ### Access the file on the Docker Desktop Dashboard
 
@@ -143,7 +143,7 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
 컨테이너는 멈출 때까지 계속 실행됩니다.
 
 1. Docker Desktop Dashboard에서 **Containers** 뷰로 이동합니다.
-2. 중지시키고 싶은 컨테이너를 찾습니다.
+2. 중지하고 싶은 컨테이너를 찾습니다.
 3. Actions열에 있는 Delete 버튼을 선택합니다.
 
 ![stop-the-container](https://docs.docker.com/get-started/docker-concepts/running-containers/images/delete-the-container.webp)
