@@ -30,7 +30,7 @@ Docker는 호스트 머신과 컨테이너 간에 데이터를 유지하고 파�
 $ docker run -v /HOST/PATH:/CONTAINER/PATH -it nginx
 ```
 
-`--mount` 플래그는 보다 고급 기능과 세부적인 제어를 제공하여 복잡한 마운트 시나리오나 프로덕션 배포에 적합합니다. `--mount`를 사용하여 Docker 호스트에 아직 없는 파일이나 디렉토리를 바인드 마운트하는 경우 docker run 명령은 자동으로 생성하지 않고 오류를 생성합니다.
+`--mount` 플래그는 보다 고급 기능과 세부적인 제어를 제공하여 복잡한 마운트 시나리오나 프로덕션 배포에 적합합니다. `--mount`를 사용하여 Docker 호스트에 아직 없는 파일이나 디렉토리를 바인드 마운트하는 경우 `docker run` 명령은 자동으로 생성하지 않고 오류를 생성합니다.
 
 ```bash
 $ docker run --mount type=bind,source=/HOST/PATH,target=/CONTAINER/PATH,readonly nginx
