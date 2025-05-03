@@ -16,7 +16,7 @@
    $ docker run --rm alpine touch greeting.txt
    ```
 
-   > #### Tip
+   > **Tip**
    >
    > 이미지 이름(이 경우, `alpine`) 뒤에 지정한 모든 명령은 컨테이너 내부에서 실행됩니다. 이 경우, `touch greeting.txt` 명령은 컨테이너의 파일 시스템에 `greeting.txt`라는 파일을 생성합니다.
 
