@@ -27,7 +27,7 @@
 
 1. `getting-started-app` 디렉토리가 Docker Desktop의 파일 공유 설정에 정의된 디렉토리에 있는지 확인합니다. 이 설정은 컨테이너와 공유할 수 있는 파일시스템의 부분을 정의합니다. 설정에 액세스하는 방법에 대한 자세한 내용은 [파일 공유](https://docs.docker.com/desktop/settings-and-maintenance/settings/#file-sharing)를 참조하세요.
 
-   > #### Note
+   > **Note**
    >
    > **파일 공유** 탭은 Hyper-V 모드에서만 사용할 수 있습니다. 파일은 WSL 2 모드와 Windows 컨테이너 모드에서 자동으로 공유되기 때문입니다.
 

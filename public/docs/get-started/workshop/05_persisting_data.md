@@ -70,7 +70,7 @@ CLI 또는 Docker Desktop의 그래픽 인터페이스를 사용하여 볼륨을
    $ docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/todos getting-started
    ```
 
-   > #### Note
+   > **Note**
    >
    > Git Bash를 사용하는 경우 이 명령에 다른 구문을 사용해야 합니다.
    >

@@ -51,7 +51,7 @@ docker: Error response from daemon: driver failed programming external connectiv
    $ docker rm <the-container-id>
    ```
 
-> #### Note
+> **Note**
 >
 > `docker rm` 명령에 `force` 플래그를 추가하면 단일 명령으로 컨테이너를 중지하고 제거할 수 있습니다. 예: `docker rm -f <컨테이너 ID>`
 
