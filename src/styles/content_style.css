@@ -8,20 +8,23 @@
 #content h1 {
   font-size: 2rem;
   font-weight: bold;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   color: #333;
 }
 
 #content h2 {
   font-size: 1.75rem;
-  font-weight: bold;
+  font-weight: 500;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   color: #444;
 }
 
 #content h3 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   color: #444;
 }
