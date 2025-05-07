@@ -254,7 +254,7 @@ COPY --from=build-stage /path/in/build/stage /path/to/place/in/final/stage
 
    이 명령어는 현재 디렉토리에 있는 `Dockerfile` 파일의 최종 단계를 사용하여 `spring-helloworld-builder`라는 Docker 이미지를 빌드합니다.
 
-   > ### Note
+   > **Note**
    >
    > 다중 단계 Dockerfile에서 최종 단계(final)는 기본적으로 빌드 대상입니다. 즉, `docker build` 명령어에서 `--target` 플래그를 사용하여 대상 단계를 명시적으로 지정하지 않으면 Docker는 기본적으로 마지막 단계를 빌드합니다. JDK 환경으로 빌더 단계를 빌드하려면 다음 명령어를 사용할 수 있습니다:
    >
