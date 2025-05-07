@@ -1,121 +1,122 @@
 #content {
-    color: black !important;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
+  color: black !important;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 #content h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 #content h2 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #444;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #444;
 }
 
 #content h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #444;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #444;
 }
 
 #content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: #222;
 }
 
-#content ul, #content ol {
-    margin-left: 1.5rem;
-    padding-left: 1rem;
+#content ul,
+#content ol {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
 }
 
 #content ul {
-    list-style-type: disc;
+  list-style-type: disc;
 }
 
 #content ol {
-    list-style-type: decimal;
+  list-style-type: decimal;
 }
 
 #content li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-#content ul ul, #content ol ol, #content ul ol, #content ol ul {
-    margin-left: 1.5rem;
-    padding-left: 1rem;
+#content ul ul,
+#content ol ol,
+#content ul ol,
+#content ol ul {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
 }
 
 #content pre {
-    background-color: #282c34;
-    color: #f8f8f2;
-    padding: 16px;
-    border-radius: 8px;
-    overflow-x: auto;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: "Fira Code", "Courier New", monospace;
+  padding: 0.5rem;
+  border: 2px solid #e1e2e6;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
 
 #content pre code {
-    display: block;
-    background: none;
-    color: inherit;
-    white-space: pre-wrap;
+  display: block;
+  background: #fff;
+  color: #000000;
+  white-space: pre-wrap;
 }
 
 #content code {
-    font-family: "Fira Code", "Courier New", monospace;
-    font-size: 13px;
-    background-color: rgba(40, 44, 52, 0.8);
-    color: #e06c75;
-    padding: 2px 6px;
-    border-radius: 4px;
-    white-space: nowrap;
+  font-size: 13px;
+  background-color: #e1e2e6;
+  color: #000000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 #content blockquote {
-    border-left: 4px solid #007bff;
-    padding: 0.75rem 1rem;
-    margin: 1rem 0;
-    background-color: #f8f9fa;
-    font-style: italic;
-    color: #555;
+  border-left: 4px solid #007bff;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background-color: #f8f9fa;
+  font-style: italic;
+  color: #555;
 }
 
 #content a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease-in-out;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
 }
 
 #content a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+  color: #0056b3;
+  text-decoration: underline;
 }
 
 #content a:active {
-    color: #004080;
+  color: #004080;
 }
 
 #content a:visited {
-    color: #800080;
+  color: #800080;
 }
 
 #content a.external-link::after {
-    content: " 🔗";
-    font-size: 0.8em;
-    opacity: 0.7;
+  content: ' 🔗';
+  font-size: 0.8em;
+  opacity: 0.7;
 }

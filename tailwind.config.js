@@ -1,3 +1,3 @@
 module.exports = {
-	darkMode: "media", // 또는 'class'
+  darkMode: 'media', // 또는 'class'
 };
