@@ -16,7 +16,7 @@
    $ docker run --rm alpine touch greeting.txt
    ```
 
-   > #### Tip
+   > **Tip**
    >
    > 이미지 이름(이 경우, `alpine`) 뒤에 지정한 모든 명령은 컨테이너 내부에서 실행됩니다. 이 경우, `touch greeting.txt` 명령은 컨테이너의 파일 시스템에 `greeting.txt`라는 파일을 생성합니다.
 
@@ -70,7 +70,7 @@ CLI 또는 Docker Desktop의 그래픽 인터페이스를 사용하여 볼륨을
    $ docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/todos getting-started
    ```
 
-   > #### Note
+   > **Note**
    >
    > Git Bash를 사용하는 경우 이 명령에 다른 구문을 사용해야 합니다.
    >

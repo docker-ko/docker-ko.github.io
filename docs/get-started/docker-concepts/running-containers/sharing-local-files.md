@@ -124,7 +124,7 @@ $ docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx
       $ docker run -d --name my_site -p 8080:80 --mount type=bind,source=./,target=/usr/local/apache2/htdocs/ httpd:2.4
       ```
 
-    > #### Tip
+    > **Tip**
     >
     > Windows PowerShell에서 `-v` 또는 `--mount` 플래그를 사용할 때는 `./` 대신 디렉토리의 절대 경로를 제공해야 합니다. 이는 PowerShell이 ​​bash(Mac 및 Linux 환경에서 일반적으로 사용됨)와 다르게 상대 경로를 처리하기 때문입니다.
 
