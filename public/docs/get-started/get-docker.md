@@ -8,22 +8,22 @@ Docker의 방법론을 활용하여 코드를 신속하게 배송, 테스트 및
 
 도커는 여러 플랫폼에서 다운로드하여 설치할 수 있습니다. 다음 섹션을 참조하여 최적의 설치 경로를 선택하세요.
 
-> ### Docker Desktop terms
+> **Docker Desktop terms**
 >
 > 대기업(직원 250명 이상 또는 연간 매출 1000만 달러 이상)에서 Docker Desktop을 상업적으로 사용하려면 [유료 구독](https://www.docker.com/pricing/?_gl=1*h2v28y*_gcl_au*MjczODgxODI4LjE3Mzg0NzA0NDI.*_ga*MjEyODM1MDY2OC4xNzIwMzEyNzQ5*_ga_XJWPQMJYHQ*MTczOTU2MjU3My42MS4xLjE3Mzk1NjI3NjMuNjAuMC4w)이 필요합니다.
 
-## Docker Desktop for Mac
+#### Docker Desktop for Mac
 
 macOS 샌드박스 보안 모델을 사용하는 네이티브 애플리케이션으로, Mac에 모든 Docker 도구를 제공합니다.
 
-## Docker Desktop for Windows
+#### Docker Desktop for Windows
 
 모든 Docker 도구를 Windows 컴퓨터에 제공하는 네이티브 Windows 애플리케이션입니다.
 
-## Docker Desktop for Linux
+#### Docker Desktop for Linux
 
 모든 Docker 도구를 Linux 컴퓨터에 제공하는 네이티브 Linux 애플리케이션입니다.
 
-> ### Note
+> **Note**
 >
 > 도커 엔진을 설치하는 방법에 대한 정보는 [Docker Engine 설치 개요](https://docs.docker.com/get-started/get-docker/)를 참조하세요.
