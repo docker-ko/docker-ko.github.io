@@ -21,7 +21,7 @@ Docker Hub는 인기 있는 옵션이지만, 요즘엔 [Amazon Elastic Container
 다음 다이어그램은 레지스트리, 리포지토리 및 이미지 간의 관계를 보여줍니다.
 ![repo-registry-relation](/imgs/get-started/the-basics/repo-registry-rel.png)
 
-> ### Note!
+> **Note**
 >
 > 무료 버전의 도커 허브를 사용하여 하나의 개인 저장소와 무제한 공개 저장소를 만들 수 있습니다. 자세한 내용은 [Docker Hub subscription page](https://www.docker.com/pricing/?_gl=1*1nknmps*_gcl_au*MTc5Njg5NTc1My4xNzM4MDg3ODEw*_ga*MjcxOTM2ODU5LjE3MTIxMzY5MzE.*_ga_XJWPQMJYHQ*MTczODQ5MjUxNC42LjEuMTczODQ5Mzc0OS41My4wLjA.)를 방문하세요.
 
@@ -77,7 +77,7 @@ Dockerfile의 세부 사항에 대해서는 나중에 자세히 설명할 테니
    docker build -t <YOUR_DOCKER_USERNAME>/docker-quickstart .
    ```
 
-   > ### Note
+   > **Note**
    >
    > 도커 빌드 명령의 끝에 점(.)을 포함해야 합니다. 이렇게 하면 도커가 Dockerfile을 찾을 수 있는 위치를 알 수 있습니다.
 

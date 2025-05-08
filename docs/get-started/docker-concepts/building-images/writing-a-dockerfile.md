@@ -107,19 +107,15 @@ CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080" ]
    CMD [ "node", "./src/index.js" ]
    ```
 
-> ### This Dockerfile isn't production-ready yet
+> **This Dockerfile isn't production-ready yet**
 >
 > 이 Dockerfile이 아직 모든 모범 사례를 따르지 않는다는 점에 유의하는 것이 중요합니다(의도적으로). 앱은 빌드하지만 빌드가 가능한 한 빠르지 않고 이미지도 가능한 한 안전하지 않습니다.
 >
 > 계속 읽어서 이미지가 빌드 캐시를 최대화하고 루트가 아닌 사용자로 실행하고 여러 단계로 빌드하는 방법에 대해 자세히 알아보세요.
 
-> ### Containerize new projects quickly with `docker init`
+> **Containerize new projects quickly with `docker init`**
 >
-> `docker init` 명령어는 프로젝트를 분석하고 Dockerfile, `compose.yaml`, `.dockerignore`를 빠르게 생성하여 작업을 시작하는 데 도움을 줍니다. 여기서는 Dockerfile에 대해 구체적으로 배우기 때문에 지금은 사용하지 않을 것입니다. 하지만 [여기에서 자세히 알아보세요](https://docs.docker.com/engine/reference/commandline/init/).
-
-## 새로운 프로젝트를 신속하게 컨테이너화하기
-
-`docker init` 명령어를 사용하면 프로젝트를 분석하고 Dockerfile, `compose.yaml`, `.dockerignore` 파일을 신속하게 생성하여 바로 시작할 수 있습니다. 여기서는 Dockerfile을 배우는 것이 목적이므로, 지금은 사용하지 않겠습니다. 자세한 내용은 [여기](https://docs.docker.com/reference/cli/docker/init/)를 참조하세요.
+> `docker init` 명령어는 프로젝트를 분석하고 Dockerfile, `compose.yaml`, `.dockerignore`를 빠르게 생성하여 작업을 시작하는 데 도움을 줍니다. 여기서는 Dockerfile에 대해 구체적으로 배우기 때문에 지금은 사용하지 않을 것입니다. 하지만, [여기에서 자세히 알아보세요](https://docs.docker.com/engine/reference/commandline/init/).
 
 ## Additional resources
 
