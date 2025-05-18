@@ -25,10 +25,26 @@ Docker는 DockerCon 2022에서 진행된 비디오 워크숍을 시청하는 것
 - [DB 연결 및 바인드 마운트 설정](https://youtu.be/gAGEar5HQoU?t=6305)
 - [클라우드에 컨테이너 배포](https://youtu.be/gAGEar5HQoU?t=8280)
 
-[Getting Started with Docker(유튜브 링크)](https://youtu.be/gAGEar5HQoU)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/gAGEar5HQoU" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Creating a container from scratch
 
 컨테이너가 처음부터 어떻게 만들어지는지 보고 싶다면, Aqua Security의 Liz Rice가 Go 언어로 처음부터 컨테이너를 만드는 훌륭한 강연을 소개합니다. 이 강연은 네트워킹, 파일 시스템용 이미지 사용 및 기타 고급 주제를 다루지는 않지만, 컨테이너가 어떻게 작동하는지에 대한 깊이 있는 통찰을 제공합니다.
 
-[GOTO 2018・"Scratch"부터 시작하는 컨테이너(유튜브 링크)](https://youtu.be/8fi7uSYlOdc)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/8fi7uSYlOdc" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>

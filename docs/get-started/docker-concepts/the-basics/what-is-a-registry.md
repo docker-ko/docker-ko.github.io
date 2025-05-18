@@ -1,6 +1,14 @@
 # What is a registry?
 
-[유튜브 링크](https://www.youtube.com/watch?v=2WDl10Wv5rs)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/2WDl10Wv5rs" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 

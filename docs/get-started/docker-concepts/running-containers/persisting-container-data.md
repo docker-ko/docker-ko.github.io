@@ -1,6 +1,14 @@
 # Persisting container data
 
-[유튜브 링크](https://youtu.be/10_2BjqB_Ls)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/10_2BjqB_Ls" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 
