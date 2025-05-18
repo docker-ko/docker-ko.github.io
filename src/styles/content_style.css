@@ -105,27 +105,17 @@ h4 {
 #content a {
   color: #007bff;
   text-decoration: none;
-  font-weight: 600;
   transition: color 0.2s ease-in-out;
-}
 
-#content a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
+  &:hover {
+    color: #007bff;
+  }
 
-#content a:active {
-  color: #004080;
-}
-
-#content a:visited {
-  color: #800080;
-}
-
-#content a.external-link::after {
-  content: ' 🔗';
-  font-size: 0.8em;
-  opacity: 0.7;
+  &.external-link::after {
+    content: ' 🔗';
+    font-size: 0.8em;
+    opacity: 0.7;
+  }
 }
 
 #content .youtube-video {

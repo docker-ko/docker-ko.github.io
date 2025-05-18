@@ -9,7 +9,7 @@ class HeaderComponent extends HTMLElement {
             <div class="max-w-[1920px] mx-auto flex lg:gap-8 gap-2 h-full items-center justify-between">
                 <div class="flex h-full items-center lg:gap-8 gap-2">
                     <div>
-                        <a href="https://docker-ko.github.io" title="Docker korean translation home page">
+                        <a href="/" title="Docker korean translation home page">
                             <img
                                 src="./imgs/logo/docker-logo-white.svg"
                                 alt="Docker Korea home page"
