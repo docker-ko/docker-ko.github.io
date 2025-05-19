@@ -57,20 +57,32 @@
     padding-left: 1rem;
 }
 
-#content code {
-    font-family: monospace;
-    background-color: #f4f4f4;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    color: #d63384;
+#content pre {
+    background-color: #282c34;
+    color: #f8f8f2;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "Fira Code", "Courier New", monospace;
 }
 
-#content pre {
-    background: #1e1e1e;
-    color: white;
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
+#content pre code {
+    display: block;
+    background: none;
+    color: inherit;
+    white-space: pre-wrap;
+}
+
+#content code {
+    font-family: "Fira Code", "Courier New", monospace;
+    font-size: 13px;
+    background-color: rgba(40, 44, 52, 0.8);
+    color: #e06c75;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 #content blockquote {
