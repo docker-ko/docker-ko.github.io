@@ -2,7 +2,7 @@
 
 @layer base {
   table {
-    @apply table-auto w-3/4;
+    @apply w-3/4 table-auto;
   }
 
   th,

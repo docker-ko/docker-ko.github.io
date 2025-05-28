@@ -19,11 +19,11 @@ jobs:
       - name: Node.js 설정
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: 의존성 설치
-        run: npm install
+        run: npm ci
 
       - name: Vite 프로젝트 빌드
         run: npm run build

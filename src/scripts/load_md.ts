@@ -3,7 +3,7 @@ import { marked } from 'marked';
 // ✅ marked 옵션 설정 (브레이크, GFM 지원 등)
 marked.setOptions({
   gfm: true,
-  breaks: true
+  breaks: true,
 });
 
 // ✅ box-component를 블록 태그로 처리하는 커스텀 토크나이저 추가
@@ -15,7 +15,7 @@ const blockTagRegex = new RegExp(
 
 const customBlockTokenizer = {
   name: 'custom-block-tag',
-  level: "block",
+  level: 'block',
   start(src: string) {
     return src.match(blockTagRegex)?.index;
   },
@@ -38,8 +38,13 @@ marked.use({ extensions: [customBlockTokenizer] });
  * mdText를 웹 컴포넌트 태그(<box-component>, <button-component>) 기준으로 분할하여
  * 마크다운은 파싱하고, 웹 컴포넌트는 그대로 삽입하는 함수
  */
-async function renderMarkdownWithComponents(mdText: string, contentElement: HTMLElement) {
-  const tokens = mdText.split(/(<\/?box-component[^>]*>|<\/?button-component[^>]*>)/gi).filter(Boolean);
+async function renderMarkdownWithComponents(
+  mdText: string,
+  contentElement: HTMLElement
+) {
+  const tokens = mdText
+    .split(/(<\/?box-component[^>]*>|<\/?button-component[^>]*>)/gi)
+    .filter(Boolean);
 
   for (const token of tokens) {
     if (/^<\/?(box-component|button-component)[^>]*>$/.test(token)) {
@@ -69,7 +74,7 @@ async function loadMarkdown(page: string) {
     const contentElement = document.getElementById('content')!;
     contentElement.innerHTML = '';
     await renderMarkdownWithComponents(mdText, contentElement);
-  } catch (error) {
+  } catch {
     document.getElementById('content')!.innerHTML = `
       <div id="not-found" class="w-full">
         <p>페이지를 찾을 수 없습니다.</p>
@@ -80,6 +85,6 @@ async function loadMarkdown(page: string) {
 }
 
 export async function initializeMarkdownLoader() {
-  let page = location.hash ? location.hash.substring(2) : 'home';
+  const page = location.hash ? location.hash.substring(2) : 'home';
   await loadMarkdown(page);
 }
