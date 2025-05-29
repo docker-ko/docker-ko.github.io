@@ -1,1 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@layer base {
+  table {
+    @apply table-auto w-3/4;
+  }
+
+  th,
+  td {
+    @apply px-4 py-2 text-justify;
+  }
+
+  thead {
+    @apply bg-gray-200;
+  }
+}

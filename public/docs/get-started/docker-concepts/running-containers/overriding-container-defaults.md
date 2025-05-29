@@ -1,6 +1,14 @@
-# Overriding container defaults=
+# Overriding container defaults
 
-[유튜브 링크](https://youtu.be/PFszWK3BB8I)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/PFszWK3BB8I" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 
@@ -35,7 +43,7 @@ HOSTNAME=2042f2e6ebe4
 foo=bar
 ```
 
-> #### Tip
+> **Tip**
 >
 > `.env` 파일은 수많은 `-e` 플래그로 명령줄을 어지럽히지 않고 Docker 컨테이너에 대한 환경 변수를 설정하는 편리한 방법으로 작용합니다. `.env` 파일을 사용하려면 `docker run` 명령과 함께 `--env-file` 옵션을 전달할 수 있습니다.
 >
@@ -192,4 +200,4 @@ $ docker run -e POSTGRES_PASSWORD=secret postgres docker-entrypoint.sh -h localh
 
 이제 컨테이너 기본값을 재정의하는 방법을 알아보았으니, 컨테이너 데이터를 유지하는 방법을 알아보겠습니다.
 
-[Persisting container data](#/get-started/docker-concepts/running-containers/persisting-container-data.md)
+[Persisting container data](#/get-started/docker-concepts/running-containers/persisting-container-data)
