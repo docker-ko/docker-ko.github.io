@@ -1,6 +1,14 @@
 # Build and push your first image
 
-[![Get docker desptop](https://img.youtube.com/vi/7ge1s5nAa34/0.jpg)](https://www.youtube.com/watch?v=7ge1s5nAa34)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/7ge1s5nAa34" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 
@@ -113,4 +121,6 @@ Docker 이미지를 공유하기 위해서는 이를 저장할 공간이 필요�
 
 ## Next steps
 
-이미지를 만들었으니, 개발자로서 왜 Docker를 배워야 하는지와 어떻게 일상의 작업들을 도움을 받을 수 있는지 알아봅시다. 
+이제 이미지를 빌드했으니, 왜 개발자로서 도커에 대해 더 학습해야 하고 도커가 여러분의 일상 업무에 어떻게 도움이 될지 논의해 보겠습니다.
+
+[What's Next](/#/get-started/introduction/whats-next)

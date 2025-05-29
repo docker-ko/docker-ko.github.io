@@ -1,6 +1,14 @@
 # Build, tag, and publish an image
 
-[유튜브 링크](https://youtu.be/chiiGLlYRlY)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/chiiGLlYRlY" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 
@@ -90,7 +98,7 @@ docker push my-username/my-image
 
 몇 초 내에 이미지의 모든 레이어가 레지스트리에 푸시됩니다.
 
-> ### 인증 요구
+> **인증 요구**
 >
 > 이미지를 레포지토리에 푸시하기 전에 인증이 필요합니다. 이를 위해 [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) 명령어를 사용합니다.
 

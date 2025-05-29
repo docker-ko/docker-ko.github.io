@@ -1,6 +1,14 @@
 # Persisting container data
 
-[유튜브 링크](https://youtu.be/10_2BjqB_Ls)
+<div class="youtube-video">
+   <iframe 
+    src="https://www.youtube.com/embed/10_2BjqB_Ls" 
+    frameborder="0" 
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+   >
+  </iframe>
+</div>
 
 ## Explanation
 
@@ -126,7 +134,7 @@ Docker Desktop Dashboard는 모든 볼륨의 내용을 볼 수 있는 기능과 
 $ docker rm -f new-db
 ```
 
-볼륨을 제거하는 방법은 다음과 같습니다:
+볼륨을 제거하는 데에는 다음과 같이 몇 가지 방법이 있습니다:
 
 - Docker Desktop Dashboard에서 볼륨의 **Delete Volume** 옵션을 선택하세요.
 - `docker volume rm` 명령어를 사용합니다:
@@ -150,4 +158,4 @@ $ docker rm -f new-db
 
 이제 컨테이너 데이터를 유지하는 법에 대해 알아보았으니, 로컬 파일을 컨테이너와 공유하는 방법을 알아볼 차례입니다.
 
-[Sharing local files with containers](#/get-started/docker-concepts/running-containers/sharing-local-files.md)
+[Sharing local files with containers](#/get-started/docker-concepts/running-containers/sharing-local-files)

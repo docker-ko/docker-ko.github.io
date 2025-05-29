@@ -10,15 +10,16 @@
     "code:check": "eslint . --ext .js,.jsx,.ts,.tsx && prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.7",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
     "prettier": "^3.5.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "~5.7.2",
-    "vite": "^6.2.1"
+    "vite": "^6.3.2"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.6",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "marked": "^15.0.7",
