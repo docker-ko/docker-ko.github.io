@@ -19,22 +19,22 @@
 
 도커 데스크탑을 구축하고 실행하는 것은 컨테이너화를 시작하는 개발자에게 중요한 첫 단계이며, 도커 컨테이너를 관리하기 위한 원활하고 사용자 친화적인 인터페이스를 제공합니다. 도커 데스크탑은 컨테이너에서 애플리케이션을 빌드, 공유 및 실행하는 프로세스를 간소화하여 다양한 환경에서 일관성을 보장합니다.
 
-시작[#/get-started/introduction/get-docker-desktop]
+[시작](#/get-started/introduction/get-docker-desktop)
 
 ### 2. 컨테이너를 사용하여 개발하기
 
 도커의 강력한 기능을 직접 경험하며 첫 번째 컨테이너를 실행하는 방법을 알아보세요. 컨테이너화된 환경 내에서 백엔드와 프런트엔드 코드를 실시간으로 변경하여 원활한 통합과 테스트를 보장하는 방법도 다룹니다.
 
-시작[#/get-started/introduction/develop-with-containers]
+[시작](#/get-started/introduction/develop-with-containers)
 
 ### 3. 첫번째 이미지 빌드 및 푸시하기
 
 애플리케이션 컨테이너화의 핵심 단계인 첫 번째 도커 이미지를 빌드하는 방법을 알아보세요. 이미지 저장소를 생성하고 도커 허브에 이미지를 빌드하여 푸시하는 과정을 안내합니다. 이를 통해 팀 내에서 이미지를 쉽게 공유할 수 있습니다.
 
-시작[#/get-started/introduction/build-and-push-first-image]
+[시작](#/get-started/introduction/build-and-push-first-image)
 
 ### 4. 다음은?
 
 이제 도커 데스크탑을 설정하고, 컨테이너로 개발하고, 첫 번째 이미지를 빌드하고 푸시했으므로 다음 단계로 넘어가 컨테이너가 무엇이고 어떻게 작동하는지 자세히 알아볼 준비가 되었습니다.
 
-시작[#/get-started/introduction/whats-next]
+[시작](#/get-started/introduction/whats-next)
