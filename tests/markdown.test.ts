@@ -70,11 +70,12 @@ describe('renderMarkdownWithComponents', () => {
   describe('웹 컴포넌트 존재 확인', () => {
     it('단일 box-component가 DOM에 존재하는지 확인', async () => {
       // Arrange
-      const mdText = '<box-component title="Docker 개요" description="Docker의 기본 개념" imgsrc="/imgs/docker.svg" href="/overview"></box-component>';
+      const mdText =
+        '<box-component title="Docker 개요" description="Docker의 기본 개념" imgsrc="/imgs/docker.svg" href="/overview"></box-component>';
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const boxComponent = contentElement.querySelector('box-component');
@@ -84,11 +85,12 @@ describe('renderMarkdownWithComponents', () => {
 
     it('단일 button-component가 DOM에 존재하는지 확인', async () => {
       // Arrange
-      const mdText = '<button-component title="시작하기" href="/get-started"></button-component>';
+      const mdText =
+        '<button-component title="시작하기" href="/get-started"></button-component>';
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const buttonComponent = contentElement.querySelector('button-component');
@@ -105,15 +107,18 @@ describe('renderMarkdownWithComponents', () => {
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const boxComponent = contentElement.querySelector('box-component');
       const buttonComponent = contentElement.querySelector('button-component');
-      
+
       expect(boxComponent).toBeTruthy();
       expect(buttonComponent).toBeTruthy();
-      expect(contentElement.querySelectorAll('box-component, button-component').length).toBe(2);
+      expect(
+        contentElement.querySelectorAll('box-component, button-component')
+          .length
+      ).toBe(2);
     });
   });
 
@@ -126,12 +131,12 @@ describe('renderMarkdownWithComponents', () => {
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const boxComponent = contentElement.querySelector('box-component');
       const innerHTML = boxComponent?.innerHTML || '';
-      
+
       expect(innerHTML).toContain(title);
       expect(innerHTML).toContain(description);
       expect(innerHTML).toContain('shadow rounded bg-white');
@@ -146,12 +151,12 @@ describe('renderMarkdownWithComponents', () => {
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const buttonComponent = contentElement.querySelector('button-component');
       const innerHTML = buttonComponent?.innerHTML || '';
-      
+
       expect(innerHTML).toContain(title);
       expect(innerHTML).toContain(`href="${href}"`);
       expect(innerHTML).toContain('bg-[#086dd7]');
@@ -170,16 +175,16 @@ describe('renderMarkdownWithComponents', () => {
 
       // Act
       await renderMarkdownWithComponents(mdText, contentElement);
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       // Assert
       const boxComponent = contentElement.querySelector('box-component');
       const buttonComponent = contentElement.querySelector('button-component');
-      
+
       expect(boxComponent?.innerHTML).toContain(boxTitle);
       expect(boxComponent?.innerHTML).toContain(boxDescription);
       expect(buttonComponent?.innerHTML).toContain(buttonTitle);
-      
+
       const allContent = contentElement.innerHTML;
       expect(allContent).toContain(boxTitle);
       expect(allContent).toContain(boxDescription);

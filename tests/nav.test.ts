@@ -88,14 +88,14 @@ beforeAll(async () => {
 beforeEach(() => {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   document = (global as any).document;
-  
+
   // 각 테스트 전에 hidden 클래스 초기화
   const spans = document.querySelectorAll('span');
   spans.forEach((span, index) => {
     if (index % 2 === 0) {
       span.classList.remove('hidden'); // 짝수 인덱스: 보이게
     } else {
-      span.classList.add('hidden');     // 홀수 인덱스: 숨기게
+      span.classList.add('hidden'); // 홀수 인덱스: 숨기게
     }
   });
 
@@ -104,78 +104,90 @@ beforeEach(() => {
   ulElement?.classList.remove('hidden');
 });
 
-  describe('네비게이션 초기화 확인', () => {
-    it('네비게이션 버튼들이 올바르게 선택되는지 확인', () => {
-      // Arrange & Act
-      initializeNavFn();
-      const buttons = document.querySelectorAll(
-        'div#nav__get-started div > button, div#nav__content li > div > button'
-      );
+describe('네비게이션 초기화 확인', () => {
+  it('네비게이션 버튼들이 올바르게 선택되는지 확인', () => {
+    // Arrange & Act
+    initializeNavFn();
+    const buttons = document.querySelectorAll(
+      'div#nav__get-started div > button, div#nav__content li > div > button'
+    );
 
-      // Assert
-      expect(buttons.length).toBe(4); // 실제 DOM에서 선택되는 버튼 개수에 맞춤
-    });
-
-    it('버튼에 이벤트 리스너가 추가되는지 확인', () => {
-      // Arrange
-      const button = document.getElementById('test-button-1') as HTMLButtonElement;
-      const clickSpy = vi.fn();
-      button.addEventListener = vi.fn().mockImplementation((event, handler) => {
-        if (event === 'click') {
-          clickSpy.mockImplementation(handler);
-        }
-      });
-
-      // Act
-      initializeNavFn();
-
-      // Assert
-      expect(button.addEventListener).toHaveBeenCalledWith('click', expect.any(Function));
-    });
+    // Assert
+    expect(buttons.length).toBe(4); // 실제 DOM에서 선택되는 버튼 개수에 맞춤
   });
 
-  describe('UL 요소 토글 기능 확인', () => {
-    it('버튼 클릭 시 UL 요소의 hidden 클래스가 토글되는지 확인', () => {
-      // Arrange
-      initializeNavFn();
-      const button = document.getElementById('test-button-2') as HTMLButtonElement;
-      const ulElement = document.querySelector('ul.ml-3') as HTMLUListElement;
-
-      // Act
-      button.click();
-
-      // Assert
-      expect(ulElement.classList.contains('hidden')).toBe(true);
+  it('버튼에 이벤트 리스너가 추가되는지 확인', () => {
+    // Arrange
+    const button = document.getElementById(
+      'test-button-1'
+    ) as HTMLButtonElement;
+    const clickSpy = vi.fn();
+    button.addEventListener = vi.fn().mockImplementation((event, handler) => {
+      if (event === 'click') {
+        clickSpy.mockImplementation(handler);
+      }
     });
+
+    // Act
+    initializeNavFn();
+
+    // Assert
+    expect(button.addEventListener).toHaveBeenCalledWith(
+      'click',
+      expect.any(Function)
+    );
+  });
+});
+
+describe('UL 요소 토글 기능 확인', () => {
+  it('버튼 클릭 시 UL 요소의 hidden 클래스가 토글되는지 확인', () => {
+    // Arrange
+    initializeNavFn();
+    const button = document.getElementById(
+      'test-button-2'
+    ) as HTMLButtonElement;
+    const ulElement = document.querySelector('ul.ml-3') as HTMLUListElement;
+
+    // Act
+    button.click();
+
+    // Assert
+    expect(ulElement.classList.contains('hidden')).toBe(true);
+  });
+});
+
+describe('Span 요소 토글 기능 확인', () => {
+  it('버튼 클릭 시 span 요소들의 hidden 클래스가 토글되는지 확인(하위 카테고리가 더 이상 없는 경우)', () => {
+    // Arrange
+    initializeNavFn();
+    const button = document.getElementById(
+      'test-button-1'
+    ) as HTMLButtonElement;
+    const spans = button.querySelectorAll('span');
+
+    // Act
+    button.click();
+
+    // Assert
+    expect(spans[0].classList.contains('hidden')).toBe(true);
+    expect(spans[1].classList.contains('hidden')).toBe(false);
   });
 
-  describe('Span 요소 토글 기능 확인', () => {
-    it('버튼 클릭 시 span 요소들의 hidden 클래스가 토글되는지 확인(하위 카테고리가 더 이상 없는 경우)', () => {
-      // Arrange
-      initializeNavFn();
-      const button = document.getElementById('test-button-1') as HTMLButtonElement;
-      const spans = button.querySelectorAll('span');
-      
-      // Act
-      button.click();
+  it('버튼 클릭 시 형제 요소의 span 요소들의 클래스가 토글되는지 확인(하위 카테고리가 더 있는 경우)', () => {
+    // Arrange
+    initializeNavFn();
+    const buttonWithoutSpan = document.getElementById(
+      'docker-concepts-button'
+    ) as HTMLButtonElement;
+    const siblingButton = buttonWithoutSpan.parentElement
+      ?.nextElementSibling as HTMLButtonElement;
+    const siblingSpans = siblingButton?.querySelectorAll('span');
 
-      // Assert
-      expect(spans[0].classList.contains('hidden')).toBe(true);
-      expect(spans[1].classList.contains('hidden')).toBe(false);
-    });    
-    
-    it('버튼 클릭 시 형제 요소의 span 요소들의 클래스가 토글되는지 확인(하위 카테고리가 더 있는 경우)', () => {
-      // Arrange
-      initializeNavFn();
-      const buttonWithoutSpan = document.getElementById('docker-concepts-button') as HTMLButtonElement;
-      const siblingButton = buttonWithoutSpan.parentElement?.nextElementSibling as HTMLButtonElement;
-      const siblingSpans = siblingButton?.querySelectorAll('span');
+    // Act
+    buttonWithoutSpan.click();
 
-      // Act
-      buttonWithoutSpan.click();
-
-      // Assert
-      expect(siblingSpans?.[0].classList.contains('hidden')).toBe(false);
-      expect(siblingSpans?.[1].classList.contains('hidden')).toBe(true);
-    });
+    // Assert
+    expect(siblingSpans?.[0].classList.contains('hidden')).toBe(false);
+    expect(siblingSpans?.[1].classList.contains('hidden')).toBe(true);
   });
+});
