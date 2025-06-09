@@ -9,8 +9,8 @@
     "preview": "vite preview",
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
-    "prettier:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
+    "prettier:check": "prettier --check \"{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
+    "prettier:write": "prettier --write \"{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
     "type:check": "tsc",
     "test": "vitest --run",
     "test:watch": "vitest"
