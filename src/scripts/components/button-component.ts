@@ -1,4 +1,4 @@
-class ButtonComponent extends HTMLElement {
+export default class ButtonComponent extends HTMLElement {
   static get observedAttributes() {
     return ['href', 'title'];
   }
@@ -29,4 +29,5 @@ class ButtonComponent extends HTMLElement {
   }
 }
 
+// 웹 컴포넌트 등록
 customElements.define('button-component', ButtonComponent);

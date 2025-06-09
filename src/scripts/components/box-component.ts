@@ -1,4 +1,4 @@
-class BoxComponent extends HTMLElement {
+export default class BoxComponent extends HTMLElement {
   static get observedAttributes() {
     return ['imgsrc', 'href', 'title', 'description'];
   }
@@ -37,4 +37,5 @@ class BoxComponent extends HTMLElement {
   }
 }
 
+// 웹 컴포넌트 등록
 customElements.define('box-component', BoxComponent);
