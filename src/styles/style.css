@@ -7,7 +7,7 @@
 /* Table 관련 기본 스타일 */
 @layer base {
   card-component {
-    @apply block w-full h-full;
+    @apply block w-full;
   }
   table {
     @apply w-3/4 table-auto;
@@ -27,13 +27,11 @@
 /* 카드 컴포넌트 스타일 */
 @layer components {
   .card {
-    @apply h-full w-full min-w-0 bg-white rounded-md border border-gray-200 px-4 py-3 mb-4 transition duration-200 hover:border-gray-300 hover:shadow;
+    @apply w-full min-w-0 bg-white rounded-md border border-gray-200 px-4 py-3 mb-4 transition duration-200 hover:border-gray-300 hover:shadow;
   }
   
-  
-
   .card-link {
-    @apply flex items-start gap-4 h-full no-underline;
+    @apply flex items-start gap-4 no-underline;
   }
 
   .card-icon {

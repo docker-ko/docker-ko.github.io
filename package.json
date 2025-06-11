@@ -26,6 +26,7 @@
     "vite": "^6.3.2"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "marked": "^15.0.7",

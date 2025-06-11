@@ -16,7 +16,7 @@ class CardComponent extends HTMLElement {
   }
 
   render() {
-    const imgSrc = this.getAttribute('imgsrc'); // ❗️없으면 null
+    const imgSrc = this.getAttribute('imgsrc'); // 없으면 null
     const href = this.getAttribute('href') || '#';
     const title = this.getAttribute('title') || '';
     const description = this.getAttribute('description') || '';
