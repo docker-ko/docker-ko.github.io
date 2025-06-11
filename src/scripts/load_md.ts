@@ -43,11 +43,11 @@ async function renderMarkdownWithComponents(
   contentElement: HTMLElement
 ) {
   const tokens = mdText
-    .split(/(<\/?box-component[^>]*>|<\/?button-component[^>]*>)/gi)
+    .split(/(<\/?card-component[^>]*>|<\/?button-component[^>]*>)/gi)
     .filter(Boolean);
 
   for (const token of tokens) {
-    if (/^<\/?(box-component|button-component)[^>]*>$/.test(token)) {
+    if (/^<\/?(card-component|button-component)[^>]*>$/.test(token)) {
       contentElement.innerHTML += token;
     } else if (token.trim()) {
       const html = await marked.parse(token);
