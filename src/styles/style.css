@@ -1,6 +1,14 @@
 @import 'tailwindcss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Table 관련 기본 스타일 */
 @layer base {
+  card-component {
+    @apply block;
+  }
   table {
     @apply w-3/4 table-auto;
   }
@@ -13,4 +21,55 @@
   thead {
     @apply bg-gray-200;
   }
+  
+}
+
+/* 카드 컴포넌트 스타일 */
+@layer components {
+  .card {
+    @apply min-w-0 bg-white rounded-md border border-gray-200 px-4 py-3 mb-4 transition duration-200 hover:border-gray-300 hover:shadow h-full flex flex-col;
+  }
+  
+  .card-link {
+    @apply flex items-start gap-4 no-underline;
+  }
+
+  .card-icon {
+    @apply flex-shrink-0 mt-1;
+  }
+
+  .card-img {
+    @apply w-6 h-6;
+  }
+
+  .card-content {
+    @apply flex-1;
+  }
+
+  .card-description {
+    @apply text-sm text-gray-500 leading-snug;
+  }
+
+  .card-title {
+    @apply text-base font-semibold text-gray-700;
+  }
+}
+
+/* 전역 스타일 */
+body {
+  font-family: 'Noto Sans KR', Arial, sans-serif;
+  background: #f8fafc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin: 0 0 1em 0;
 }
