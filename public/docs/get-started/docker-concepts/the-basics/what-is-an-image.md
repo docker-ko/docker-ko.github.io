@@ -76,4 +76,4 @@
 
 이제 이미지의 기본을 배웠으니 레지스트리를 통해 이미지를 배포하는 방법을 배울 차례입니다.
 
-<button-component href="#/get-started/docker-concepts/the-basics/what-is-a-registry" title="What is a registry?" />
+<button-component href="/#/get-started/docker-concepts/the-basics/what-is-a-registry" title="What is a registry?" />
