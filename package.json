@@ -12,6 +12,8 @@
     "prettier:check": "prettier --check \"{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
     "prettier:write": "prettier --write \"{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
     "type:check": "tsc",
+    "fix:all": "npm run lint:fix && npm run prettier:write",
+    "check:all": "npm run lint:check && npm run prettier:check && npm run type:check",
     "test": "vitest --run",
     "test:watch": "vitest"
   },

@@ -112,4 +112,4 @@ df784548666d        getting-started     "docker-entrypoint.s..."   2 minutes ago
 
 다음으로, 앱을 수정하고 실행 중인 애플리케이션을 새 이미지로 업데이트하는 방법을 알아보겠습니다. 이 과정에서, 몇 가지 유용한 명령도 배우게 됩니다.
 
-[Update the application](/#/get-started/workshop/03_updating_app)
+<button-component href="/#/get-started/workshop/03_updating_app" title="Update the application" />
