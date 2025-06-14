@@ -148,4 +148,4 @@ Docker Desktop은 이를 가능하게 하고 더 많은 기능을 제공합니�
 
 애플리케이션을 업데이트했으니, 이제 컨테이너 이미지로 패키징하고 레지스트리, 특히 Docker Hub에 푸시하는 방법을 배울 준비가 되었습니다.
 
-[Build and push your first image](/#/get-started/introduction/build-and-push-first-image)
+<button-component href="/#/get-started/introduction/build-and-push-first-image" title="Build and push your first image" />

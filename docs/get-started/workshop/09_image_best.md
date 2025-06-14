@@ -172,4 +172,4 @@ COPY --from=build /app/build /usr/share/nginx/html
 
 다음 섹션에서는, 컨테이너에 대해 계속해서 학습할 수 있는 추가 리소스들에 대해 알아봅니다.
 
-[What next](/#/get-started/workshop/10_what_next)
+<button-component href="/#/get-started/workshop/10_what_next" title="What next" />

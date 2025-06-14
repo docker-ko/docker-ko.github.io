@@ -134,4 +134,4 @@ $ docker volume inspect todo-db
 
 다음 섹션에서는 바인드 마운트(bind mounts)를 사용하여 앱을 보다 효율적으로 개발하는 방법을 배우게 됩니다.
 
-[Use bind mounts](/#/get-started/workshop/06_bind_mounts)
+<button-component href="/#/get-started/workshop/06_bind_mounts" title="Use bind mounts" />

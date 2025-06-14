@@ -253,4 +253,4 @@ Docker Desktop Dashboard를 보면, **getting-started-app** 이라는 그룹이 
 
 다음으로, Dockerfile을 개선하는 데 사용할 수 있는 몇 가지 모범 사례에 대해 알아보겠습니다.
 
-[Image-building best practices](/#/get-started/workshop/09_image_best)
+<button-component href="/#/get-started/workshop/09_image_best" title="Image-building best practices" />

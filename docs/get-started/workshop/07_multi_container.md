@@ -249,4 +249,4 @@ todo 앱은 MySQL 연결 설정을 지정하기 위한 몇 가지 환경 변수 
 
 다음 섹션에서는 Docker Compose에 대해 알아보겠습니다. Docker Compose를 사용하면 애플리케이션 스택을 훨씬 쉽게 공유하고, 다른 사람들이 간단한 명령 하나로 스택을 실행하도록 할 수 있습니다.
 
-[Use Docker Compose](/#/get-started/workshop/08_using_compose)
+<button-component href="/#/get-started/workshop/08_using_compose" title="Use Docker Compose" />

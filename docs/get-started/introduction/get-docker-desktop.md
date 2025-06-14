@@ -69,4 +69,4 @@ Docker Desktop은 다양한 환경에서 애플리케이션의 설정, 구성 �
 
 Docker Desktop을 설치하고 첫 번째 컨테이너를 실행했으니, 이제 컨테이너를 사용하여 개발을 시작할 차례입니다.
 
-[Develop with containers](/#/get-started/introduction/develop-with-containers)
+<button-component href="/#/get-started/introduction/develop-with-containers" title="Develop with containers" />

@@ -185,4 +185,4 @@
 
 대부분의 이미지 빌드는 `docker container commit`을 사용하지 않고, Dockerfile을 사용합니다. Dockerfile은 이러한 단계를 자동화합니다.
 
-[Writing a Dockerfile](#/get-started/docker-concepts/building-images/writing-a-dockerfile)
+<button-component href="#/get-started/docker-concepts/building-images/writing-a-dockerfile" title="Writing a Dockerfile" />

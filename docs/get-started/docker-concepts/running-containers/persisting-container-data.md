@@ -158,4 +158,4 @@ $ docker rm -f new-db
 
 이제 컨테이너 데이터를 유지하는 법에 대해 알아보았으니, 로컬 파일을 컨테이너와 공유하는 방법을 알아볼 차례입니다.
 
-[Sharing local files with containers](#/get-started/docker-concepts/running-containers/sharing-local-files)
+<button-component href="#/get-started/docker-concepts/running-containers/sharing-local-files" title="Sharing local files with containers" />
