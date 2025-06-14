@@ -44,57 +44,6 @@
         class="dark:bg-gray-dark-100 fixed top-0 z-40 hidden h-screen w-full flex-none overflow-x-hidden overflow-y-auto bg-[#f9f9fa] md:sticky md:top-12 md:z-auto md:block md:h-[calc(100vh-64px)] md:w-[320px]"
       >
         <div class="dark:bg-gray-dark-100 z-50 w-full p-4 md:block">
-          <div id="nav__get-started" class="px-2 py-2 text-black">
-            <div class="flex w-full items-center justify-between">
-              <a
-                class="flex items-center font-light text-black hover:text-blue-500 md:text-base dark:hover:text-blue-500"
-                href="#/get-started"
-              >
-                <span class="m-0 p-0 pr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    width="12"
-                    height="12"
-                  >
-                    <path
-                      d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L125.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
-                    />
-                  </svg>
-                </span>
-                Get started
-              </a>
-              <button
-                class="inline-flex h-7 w-7 items-center justify-center rounded hover:cursor-pointer hover:bg-gray-400 hover:dark:bg-gray-400"
-              >
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    width="12"
-                    height="12"
-                  >
-                    <path
-                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 129.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                    />
-                  </svg>
-                </span>
-                <span class="hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    width="12"
-                    height="12"
-                  >
-                    <path
-                      d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-          <hr class="text-gray-light-200 dark:text-gray-dark-300 m-2" />
           <div
             id="nav__content"
             class="flex flex-col font-light text-black md:text-base"
@@ -671,13 +620,13 @@
       <!-- content: (마크다운 파일) 표시 공간 : 중간 부분 -->
       <div
         id="content"
-        class="dark:bg-background-dark w-full min-w-0 bg-white p-8"
+        class="dark:bg-background-dark w-full min-w-0 bg-white p-10"
       ></div>
 
       <!-- aside: 오른쪽 부분 사이드 -->
       <aside
         id="aside-toc"
-        class="sticky top-12 h-full min-w-80 overflow-y-auto px-2 py-4 lg:block"
+        class="sticky top-12 h-full min-w-70 overflow-y-auto px-2 py-4 lg:block"
       >
         <div id="toc" class="text-[14px] text-black font-bold"></div>
       </aside>
