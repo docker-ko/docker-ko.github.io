@@ -42,10 +42,17 @@ export const initializeTableContents = () => {
       'font-extralight',
       'hover:bg-gray-300',
       'hover:font-semibold',
-      'cursor-pointer',
+      'cursor-pointer'
     );
     const link = document.createElement('button');
-    link.classList.add('flex', 'justify-start', 'items-stretch', 'p-1', 'cursor-pointer', 'w-full');
+    link.classList.add(
+      'flex',
+      'justify-start',
+      'items-stretch',
+      'p-1',
+      'cursor-pointer',
+      'w-full'
+    );
 
     const headingText = heading.textContent || '';
     link.textContent =

@@ -3,7 +3,7 @@
 /* 전역 스타일 */
 @layer base {
   body {
-    @apply text-black bg-white;
+    @apply bg-white text-black;
   }
 }
 

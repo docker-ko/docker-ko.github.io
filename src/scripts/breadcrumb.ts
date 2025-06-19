@@ -20,10 +20,12 @@ interface TranslationData {
  */
 function getSegmentData(segment: string): SegmentData {
   const translationData = translations as TranslationData;
-  return translationData.segments[segment] || { 
-    name: segment, 
-    linkable: false,
-  };
+  return (
+    translationData.segments[segment] || {
+      name: segment,
+      linkable: false,
+    }
+  );
 }
 
 /**
@@ -37,7 +39,9 @@ function generateBreadcrumbItems(): BreadcrumbItem[] {
   }
 
   const pathSegments = hash.split('/').filter((segment) => segment !== '');
-  const breadcrumbItems: BreadcrumbItem[] = [{ name: '홈', path: '#/', linkable: true }];
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { name: '홈', path: '#/', linkable: true },
+  ];
 
   let currentPath = '';
 
@@ -74,7 +78,7 @@ function createBreadcrumbElement(items: BreadcrumbItem[]): HTMLElement {
       if (isLast) {
         // 현재 페이지는 span으로 표시
         return `<span class="truncate">${item.name}</span>`;
-      } 
+      }
 
       if (!item.linkable) {
         // linkable이 false인 경우 span으로 표시 (링크 없음)
