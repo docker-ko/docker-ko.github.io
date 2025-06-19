@@ -75,4 +75,4 @@ docker: Error response from daemon: driver failed programming external connectiv
 
 다음으로, 다른 사람과 이미지를 공유하는 방법을 학습하게 될 겁니다.
 
-[Share the application](/#/get-started/workshop/04_sharing_app)
+<button-component href="/#/get-started/workshop/04_sharing_app" title="Share the application" />

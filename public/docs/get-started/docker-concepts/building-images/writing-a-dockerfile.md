@@ -138,4 +138,4 @@ Dockerfile 작성에 대해 더 알아보려면 다음 리소스를 참조하세
 
 이제 Dockerfile을 생성하고 기본 사항을 배웠으니, 이미지를 빌드하고 태그를 지정하며 푸시하는 방법을 배우십시오.
 
-[Build, tag, and publish an image](#/get-started/docker-concepts/building-images/build-tag-and-publish-an-image)
+<button-component href="#/get-started/docker-concepts/building-images/build-tag-and-publish-an-image" title="Build, tag, and publish an image" />

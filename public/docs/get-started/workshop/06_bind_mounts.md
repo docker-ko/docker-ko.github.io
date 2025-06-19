@@ -211,4 +211,4 @@ CLI 또는 Docker Desktop을 사용하여 바인드 마운트로 컨테이너를
 
 앱을 프로덕션을 위해 준비하려면 SQLite에서 작동하는 데이터베이스를 확장성이 좀 더 뛰어난 데이터베이스로 마이그레이션해야 합니다. 간편함을 위해, 관계형 데이터베이스를 계속 사용하고 애플리케이션을 MySQL로 전환하면 됩니다. 하지만, MySQL을 어떻게 실행해야 할까요? 컨테이너 간 통신을 어떻게 허용해야 할까요? 다음 섹션에서 자세히 알아보겠습니다.
 
-[Multi container apps](/#/get-started/workshop/07_multi_container)
+<button-component href="/#/get-started/workshop/07_multi_container" title="Multi container apps" />

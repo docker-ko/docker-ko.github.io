@@ -206,4 +206,4 @@ docker push my-username/my-image
 
 이제 이미지를 빌드하고 게시하는 방법을 알았으니 Docker 빌드 캐시를 사용하여 빌드 프로세스 속도를 높이는 방법을 알아보겠습니다.
 
-[Using the build cache](#/get-started/docker-concepts/building-images/using-the-build-cache)
+<button-component href="#/get-started/docker-concepts/building-images/using-the-build-cache" title="Using the build cache" />

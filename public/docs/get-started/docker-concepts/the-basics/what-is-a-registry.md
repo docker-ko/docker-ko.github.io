@@ -126,4 +126,4 @@ Dockerfile의 세부 사항에 대해서는 나중에 자세히 설명할 테니
 
 이제 컨테이너와 이미지의 기본을 이해했으니 Docker Compose에 대해 배울 준비가 되었습니다.
 
-[What is Docker compose?](#/get-started/docker-concepts/the-basics/what-is-docker-compose)
+<button-component href="#/get-started/docker-concepts/the-basics/what-is-docker-compose" title="What is Docker compose?" />

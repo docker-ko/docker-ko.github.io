@@ -106,4 +106,4 @@
 
 다음 섹션에서는 컨테이너화된 애플리케이션에서 데이터를 유지하는 방법을 배우게 됩니다.
 
-[Persist the DB](/#/get-started/workshop/05_persisting_data)
+<button-component href="/#/get-started/workshop/05_persisting_data" title="Persist the DB" />

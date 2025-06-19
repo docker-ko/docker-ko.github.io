@@ -210,4 +210,4 @@ Dockerfile을 작성하거나 편집할 때 불필요한 캐시 누락을 피하
 
 이제 Docker 빌드 캐시를 효과적으로 사용하는 방법을 이해했으므로 다중 단계 빌드에 대해 알아볼 준비가 되었습니다.
 
-[Multi-stage builds](#/get-started/docker-concepts/building-images/multi-stage-builds)
+<button-component href="#/get-started/docker-concepts/building-images/multi-stage-builds" title="Multi-stage builds" />

@@ -123,4 +123,4 @@ Docker 이미지를 공유하기 위해서는 이를 저장할 공간이 필요�
 
 이제 이미지를 빌드했으니, 왜 개발자로서 도커에 대해 더 학습해야 하고 도커가 여러분의 일상 업무에 어떻게 도움이 될지 논의해 보겠습니다.
 
-[What's Next](/#/get-started/introduction/whats-next)
+<button-component href="/#/get-started/introduction/whats-next" title="What's Next" />
