@@ -1,22 +1,29 @@
 import translations from '../data/breadcrumb.json';
 
-interface BreadcrumbItem {
+interface SegmentData {
   name: string;
+  linkable: boolean;
+}
+
+interface BreadcrumbItem extends SegmentData {
   path: string;
 }
 
 interface TranslationData {
-  breadcrumb: Record<string, string>;
+  segments: Record<string, SegmentData>;
 }
 
 /**
- * 경로 세그먼트를 번역합니다.
+ * 경로 세그먼트를 번역하고 링크 가능 여부를 확인합니다.
  * @param segment 번역할 세그먼트
- * @returns 번역된 텍스트 또는 원본 텍스트
+ * @returns 세그먼트 데이터 또는 기본값
  */
-function translatePathSegment(segment: string): string {
+function getSegmentData(segment: string): SegmentData {
   const translationData = translations as TranslationData;
-  return translationData.breadcrumb[segment] || segment;
+  return translationData.segments[segment] || { 
+    name: segment, 
+    linkable: false,
+  };
 }
 
 /**
@@ -26,23 +33,24 @@ function generateBreadcrumbItems(): BreadcrumbItem[] {
   const hash = window.location.hash.slice(1); // # 제거
 
   if (!hash || hash === '/') {
-    return [{ name: '홈', path: '#/' }];
+    return [{ name: '홈', path: '#/', linkable: true }];
   }
 
   const pathSegments = hash.split('/').filter((segment) => segment !== '');
-  const breadcrumbItems: BreadcrumbItem[] = [{ name: '홈', path: '#/' }];
+  const breadcrumbItems: BreadcrumbItem[] = [{ name: '홈', path: '#/', linkable: true }];
 
   let currentPath = '';
 
   pathSegments.forEach((segment) => {
     currentPath += `/${segment}`;
 
-    // 세그먼트 이름을 한국어로 변환
-    const displayName = translatePathSegment(segment);
+    // 세그먼트 데이터 가져오기 (이름과 링크 가능 여부)
+    const segmentData = getSegmentData(segment);
 
     breadcrumbItems.push({
-      name: displayName,
+      name: segmentData.name,
       path: `#${currentPath}`,
+      linkable: segmentData.linkable,
     });
   });
 
@@ -66,8 +74,13 @@ function createBreadcrumbElement(items: BreadcrumbItem[]): HTMLElement {
       if (isLast) {
         // 현재 페이지는 span으로 표시
         return `<span class="truncate">${item.name}</span>`;
+      } 
+
+      if (!item.linkable) {
+        // linkable이 false인 경우 span으로 표시 (링크 없음)
+        return `<span class="truncate text-blue-500">${item.name}</span> / `;
       } else {
-        // 이전 페이지들은 링크로 표시 + 구분자
+        // 링크 가능한 이전 페이지들은 링크로 표시 + 구분자
         return `<a href="${item.path}" class="link truncate">${item.name}</a> / `;
       }
     })
