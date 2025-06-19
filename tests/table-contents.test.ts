@@ -116,8 +116,8 @@ describe('initializeTableContents', () => {
     });
   });
 
-  describe('헤딩 요소들의 li 생성 확인', () => {
-    it('마크다운 파일의 모든 h2 요소들이 li로 생성되는지 확인', async () => {
+  describe('헤딩 요소들의 button 생성 확인', () => {
+    it('마크다운 파일의 모든 h2 요소들이 알맞은 li(button의 부모 요소) 개수로 생성되는지 확인', async () => {
       // Arrange & Act
       // contentElement에 이미 testMarkdownContent가 설정됨
       initializeTableContents();
@@ -128,7 +128,7 @@ describe('initializeTableContents', () => {
       expect(h2Elements.length).toBe(liElements.length); // h2 요소 개수와 li 요소 개수가 동일해야 함
     });
 
-    it('생성된 li 요소들이 올바른 텍스트 내용을 가지는지 확인', async () => {
+    it('생성된 button 요소들이 올바른 텍스트 내용을 가지는지 확인', async () => {
       // Arrange & Act
       initializeTableContents();
       const expectedTexts = [
@@ -136,34 +136,12 @@ describe('initializeTableContents', () => {
         'Building images',
         'Running containers',
       ];
-      const liElements = tocElement.querySelectorAll('li');
+      const buttonElements = tocElement.querySelectorAll('button');
 
       // Assert
-      liElements.forEach((li, index) => {
-        const linkText = li.querySelector('a')?.textContent;
-        expect(linkText).toBe(expectedTexts[index]);
-      });
-    });
-
-    it('li 요소들이 올바른 CSS 클래스를 가지는지 확인', async () => {
-      // Arrange & Act
-      // contentElement에 이미 testMarkdownContent가 설정됨
-      initializeTableContents();
-      const liElements = tocElement.querySelectorAll('li');
-      const expectedLiClasses = [
-        'max-w-64',
-        'font-extralight',
-        'hover:bg-gray-300',
-        'hover:font-semibold',
-        'cursor-pointer',
-        'truncate',
-      ];
-
-      // Assert
-      liElements.forEach((li) => {
-        expectedLiClasses.forEach((className) => {
-          expect(li.classList.contains(className)).toBe(true);
-        });
+      buttonElements.forEach((button, index) => {
+        const buttonText = button.textContent;
+        expect(buttonText).toBe(expectedTexts[index]);
       });
     });
   });
@@ -181,7 +159,7 @@ describe('initializeTableContents', () => {
       });
     });
 
-    it('li 클릭 시 해당 섹션으로 스크롤 이동이 정확히 실행되는지 확인', async () => {
+    it('button 클릭 시 해당 섹션으로 스크롤 이동이 정확히 실행되는지 확인', async () => {
       // Arrange
       initializeTableContents();
 
@@ -208,10 +186,12 @@ describe('initializeTableContents', () => {
       const firstH2Element = contentElement.querySelector('h2');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (firstH2Element as any).getBoundingClientRect = mockGetBoundingClientRect;
-      const firstLink = tocElement.querySelector('li')?.querySelector('a');
+      const firstButton = tocElement
+        .querySelector('li')
+        ?.querySelector('button');
 
       // Act
-      firstLink?.click();
+      firstButton?.click();
 
       // Assert
       expect(mockScrollTo).toHaveBeenCalledWith({
