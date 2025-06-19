@@ -43,10 +43,9 @@ export const initializeTableContents = () => {
       'hover:bg-gray-300',
       'hover:font-semibold',
       'cursor-pointer',
-      'truncate'
     );
-    const link = document.createElement('a');
-    link.classList.add('flex', 'justify-start', 'items-stretch', 'p-1');
+    const link = document.createElement('button');
+    link.classList.add('flex', 'justify-start', 'items-stretch', 'p-1', 'cursor-pointer', 'w-full');
 
     const headingText = heading.textContent || '';
     link.textContent =
