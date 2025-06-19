@@ -55,7 +55,7 @@ export const initializeTableContents = () => {
       'truncate'
     );
     link.setAttribute('aria-label', heading.textContent || 'Heading Link');
-    link.setAttribute('role', 'link to move to that heading section');
+    link.setAttribute('role', 'link');
 
     const headingText = heading.textContent || '';
     link.textContent =

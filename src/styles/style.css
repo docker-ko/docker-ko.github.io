@@ -1,14 +1,12 @@
 @import 'tailwindcss';
 
-/* 전역 스타일 */
 @layer base {
+  /* 전역 스타일 */
   body {
     @apply bg-white text-black;
   }
-}
 
-/* Table 관련 기본 스타일 */
-@layer base {
+  /* Table 관련 기본 스타일 */
   card-component {
     @apply block;
   }
