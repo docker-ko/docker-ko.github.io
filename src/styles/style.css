@@ -1,8 +1,11 @@
 @import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 전역 스타일 */
+@layer base {
+  body {
+    @apply text-black;
+  }
+}
 
 /* Table 관련 기본 스타일 */
 @layer base {
@@ -52,28 +55,4 @@
   .card-title {
     @apply text-base font-semibold text-gray-700;
   }
-}
-
-/* 전역 스타일 */
-body {
-  font-family: 'Noto Sans KR', Arial, sans-serif;
-  background: #f8fafc;
-  color: #222;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-p {
-  margin: 0 0 1em 0;
 }
