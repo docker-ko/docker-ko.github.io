@@ -51,8 +51,11 @@ export const initializeTableContents = () => {
       'items-stretch',
       'p-1',
       'cursor-pointer',
-      'w-full'
+      'w-full',
+      'truncate'
     );
+    link.setAttribute('aria-label', heading.textContent || 'Heading Link');
+    link.setAttribute('role', 'link to move to that heading section');
 
     const headingText = heading.textContent || '';
     link.textContent =
