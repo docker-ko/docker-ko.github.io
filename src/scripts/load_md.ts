@@ -104,8 +104,8 @@ async function loadMarkdown(page: string) {
   } catch {
     document.getElementById('content')!.innerHTML = `
       <div id="not-found" class="w-full">
-        <p>페이지를 찾을 수 없습니다.</p>
-        <a href="#/home" class="back-home">홈으로 돌아가기</a>
+        <p>열심히 문서를 업데이트하고 있습니다💦. 더 풍부한 한국어 번역 자료를 제공하기 위해 웹사이트 발전에 기여하고 싶다면 <a href="https://github.com/docker-ko/docker-ko.github.io">깃허브 레포지토리 주소</a>를 클릭하세요!</p>
+        <button-component href="#/home" title="홈으로 돌아가기" />
       </div>
     `;
   }
