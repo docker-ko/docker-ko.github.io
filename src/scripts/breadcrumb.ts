@@ -35,12 +35,12 @@ function generateBreadcrumbItems(): BreadcrumbItem[] {
   const hash = window.location.hash.slice(1); // # 제거
 
   if (!hash || hash === '/') {
-    return [{ name: '홈', path: '#/', linkable: true }];
+    return [{ name: '홈', path: '/', linkable: true }];
   }
 
   const pathSegments = hash.split('/').filter((segment) => segment !== '');
   const breadcrumbItems: BreadcrumbItem[] = [
-    { name: '홈', path: '#/', linkable: true },
+    { name: '홈', path: '/', linkable: true },
   ];
 
   let currentPath = '';

@@ -1,29 +1,5 @@
 @import 'tailwindcss';
 
-@layer base {
-  /* 전역 스타일 */
-  body {
-    @apply bg-white text-black;
-  }
-
-  /* Table 관련 기본 스타일 */
-  card-component {
-    @apply block;
-  }
-  table {
-    @apply w-3/4 table-auto;
-  }
-
-  th,
-  td {
-    @apply px-4 py-2 text-justify;
-  }
-
-  thead {
-    @apply bg-gray-200;
-  }
-}
-
 /* 카드 컴포넌트 스타일 */
 @layer components {
   .card {
