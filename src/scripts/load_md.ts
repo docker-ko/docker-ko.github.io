@@ -74,13 +74,24 @@ export async function renderMarkdownWithComponents(
 
 async function loadMarkdown(page: string) {
   try {
-    const response = await fetch(`/docs/${page}.md?cache=${Date.now()}`);
+    const response = await fetch(`/docs/${page}.md`);
+    
+    // HTTP 상태코드 확인
     if (!response.ok) throw new Error(`❌ 페이지를 찾을 수 없습니다: ${page}`);
+    
     const mdText = await response.text();
 
+    // Content-Type 확인 (개발 서버가 HTML을 반환하는 경우 대비)
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('text/html')) {
+      throw new Error(`❌ 요청된 경로가 HTML을 반환합니다: ${page}`);
+    }
+
+    // 응답 내용이 HTML인지 확인
     if (
       mdText.trim().startsWith('<!DOCTYPE html>') ||
-      mdText.includes('<html>')
+      mdText.includes('<html>') ||
+      mdText.includes('<title>')
     ) {
       throw new Error(
         `❌ 요청된 경로가 Markdown이 아닌 HTML을 반환합니다: ${page}`
