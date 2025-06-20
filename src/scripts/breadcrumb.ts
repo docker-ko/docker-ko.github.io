@@ -1,31 +1,62 @@
 import translations from '../data/breadcrumb.json';
 
+/**
+ *  Breadcrumb 아이템의 세그먼트 데이터 구조
+ * - name: 세그먼트 이름
+ * - linkable: 링크 가능 여부
+ * - children: 하위 세그먼트들 (선택적)
+ */
 interface SegmentData {
   name: string;
   linkable: boolean;
+  children?: Record<string, SegmentData>;
 }
-
-interface BreadcrumbItem extends SegmentData {
+/**
+ * Breadcrumb 아이템 구조
+ */
+interface BreadcrumbItem {
+  name: string;
   path: string;
+  linkable: boolean;
 }
 
+/**
+ * 최상위 레벨의 키-값 구조
+ */
 interface TranslationData {
-  segments: Record<string, SegmentData>;
+  [key: string]: SegmentData;
 }
 
 /**
  * 경로 세그먼트를 번역하고 링크 가능 여부를 확인합니다.
- * @param segment 번역할 세그먼트
- * @returns 세그먼트 데이터 또는 기본값
+ * 계층적 구조를 고려하여 현재 경로에서 세그먼트를 찾습니다.
+ * @param segments 전체 경로 세그먼트 배열
+ * @param currentIndex 현재 처리 중인 세그먼트의 인덱스(깊이를 알기 위함)
+ * @returns 해당 세그먼트 데이터 또는 기본값
  */
-function getSegmentData(segment: string): SegmentData {
+function getSegmentData(segments: string[], currentIndex: number): SegmentData {
   const translationData = translations as TranslationData;
-  return (
-    translationData.segments[segment] || {
-      name: segment,
+  let current = translationData[segments[0]];
+
+  if (!current) {
+    return {
+      name: segments[currentIndex],
       linkable: false,
+    };
+  }
+
+  for (let i = 1; i <= currentIndex; i++) {
+    if (current.children && current.children[segments[i]]) {
+      current = current.children[segments[i]];
+    } else {
+      return {
+        name: segments[currentIndex],
+        linkable: false,
+      };
     }
-  );
+  }
+
+  return current;
 }
 
 /**
@@ -45,11 +76,10 @@ function generateBreadcrumbItems(): BreadcrumbItem[] {
 
   let currentPath = '';
 
-  pathSegments.forEach((segment) => {
+  pathSegments.forEach((segment, index) => {
     currentPath += `/${segment}`;
 
-    // 세그먼트 데이터 가져오기 (이름과 링크 가능 여부)
-    const segmentData = getSegmentData(segment);
+    const segmentData = getSegmentData(pathSegments, index);
 
     breadcrumbItems.push({
       name: segmentData.name,
@@ -70,21 +100,17 @@ function createBreadcrumbElement(items: BreadcrumbItem[]): HTMLElement {
   breadcrumbNav.className =
     'pb-3 flex min-w-0 items-center gap-2 text-gray-400 dark:text-gray-300';
 
-  // HTML 문자열로 breadcrumb 구조 생성
   const breadcrumbHTML = items
     .map((item, index) => {
       const isLast = index === items.length - 1;
 
       if (isLast) {
-        // 현재 페이지는 span으로 표시
         return `<span class="truncate">${item.name}</span>`;
       }
 
       if (!item.linkable) {
-        // linkable이 false인 경우 span으로 표시 (링크 없음)
         return `<span class="truncate text-blue-500">${item.name}</span> / `;
       } else {
-        // 링크 가능한 이전 페이지들은 링크로 표시 + 구분자
         return `<a href="${item.path}" class="link truncate">${item.name}</a> / `;
       }
     })
@@ -110,13 +136,10 @@ function removePreviousBreadcrumb(): void {
 export function initializeBreadcrumb(): void {
   const contentDiv = document.getElementById('content')!;
 
-  // 기존 breadcrumb 제거
   removePreviousBreadcrumb();
 
-  // 새 breadcrumb 생성
   const breadcrumbItems = generateBreadcrumbItems();
   const breadcrumbElement = createBreadcrumbElement(breadcrumbItems);
 
-  // div#content의 첫 번째 자식으로 추가
   contentDiv.insertBefore(breadcrumbElement, contentDiv.firstChild);
 }

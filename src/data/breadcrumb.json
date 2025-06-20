@@ -1,156 +1,171 @@
 {
-  "segments": {
-    "get-started": {
-      "name": "시작하기",
-      "linkable": true
-    },
-    "get-docker": {
-      "name": "Docker 설치",
-      "linkable": true
-    },
-    "docker-overview": {
-      "name": "Docker 개요",
-      "linkable": true
-    },
-    "introduction": {
-      "name": "소개",
-      "linkable": true
-    },
-    "build-and-push-first-image": {
-      "name": "첫 번째 이미지 빌드 및 푸시",
-      "linkable": true
-    },
-    "develop-with-containers": {
-      "name": "컨테이너로 개발",
-      "linkable": true
-    },
-    "get-docker-desktop": {
-      "name": "Docker Desktop 설치",
-      "linkable": true
-    },
-    "whats-next": {
-      "name": "다음 단계",
-      "linkable": true
-    },
-    "docker-concepts": {
-      "name": "Docker 개념",
-      "linkable": false
-    },
-    "the-basics": {
-      "name": "기본 사항",
-      "linkable": false
-    },
-    "what-is-a-container": {
-      "name": "컨테이너란?",
-      "linkable": true
-    },
-    "what-is-a-registry": {
-      "name": "레지스트리란?",
-      "linkable": true
-    },
-    "what-is-an-image": {
-      "name": "이미지란?",
-      "linkable": true
-    },
-    "what-is-docker-compose": {
-      "name": "Docker Compose란?",
-      "linkable": true
-    },
-    "building-images": {
-      "name": "이미지 빌드",
-      "linkable": false
-    },
-    "understanding-image-layers": {
-      "name": "이미지 레이어 이해",
-      "linkable": true
-    },
-    "writing-a-dockerfile": {
-      "name": "Dockerfile 작성",
-      "linkable": true
-    },
-    "build-tag-and-publish-an-image": {
-      "name": "이미지 빌드, 태그, 게시",
-      "linkable": true
-    },
-    "using-the-build-cache": {
-      "name": "빌드 캐시 사용",
-      "linkable": true
-    },
-    "multi-stage-builds": {
-      "name": "멀티 스테이지 빌드",
-      "linkable": true
-    },
-    "running-containers": {
-      "name": "컨테이너 실행",
-      "linkable": false
-    },
-    "multi-container-applications": {
-      "name": "멀티 컨테이너 애플리케이션",
-      "linkable": true
-    },
-    "overriding-container-defaults": {
-      "name": "컨테이너 기본값 재정의",
-      "linkable": true
-    },
-    "persisting-container-data": {
-      "name": "컨테이너 데이터 유지",
-      "linkable": true
-    },
-    "publishing-ports": {
-      "name": "포트 게시",
-      "linkable": true
-    },
-    "sharing-local-files": {
-      "name": "로컬 파일 공유",
-      "linkable": true
-    },
-    "docker-workshop": {
-      "name": "Docker 워크샵",
-      "linkable": true
-    },
-    "resources": {
-      "name": "리소스",
-      "linkable": true
-    },
-    "workshop": {
-      "name": "워크샵",
-      "linkable": false
-    },
-    "02_our_app": {
-      "name": "애플리케이션 컨테이너화",
-      "linkable": true
-    },
-    "03_updating_app": {
-      "name": "애플리케이션 업데이트",
-      "linkable": true
-    },
-    "04_sharing_app": {
-      "name": "애플리케이션 공유",
-      "linkable": true
-    },
-    "05_persisting_data": {
-      "name": "데이터베이스 유지",
-      "linkable": true
-    },
-    "06_bind_mounts": {
-      "name": "바인드 마운트 사용",
-      "linkable": true
-    },
-    "07_multi_container": {
-      "name": "멀티 컨테이너 애플리케이션",
-      "linkable": true
-    },
-    "08_using_compose": {
-      "name": "Docker Compose 사용",
-      "linkable": true
-    },
-    "09_image_best": {
-      "name": "이미지 빌드 모범 사례",
-      "linkable": true
-    },
-    "10_what_next": {
-      "name": "Docker 워크숍 이후 단계",
-      "linkable": true
+  "get-started": {
+    "name": "시작하기",
+    "linkable": true,
+    "children": {
+      "get-docker": {
+        "name": "Docker 설치",
+        "linkable": true
+      },
+      "docker-overview": {
+        "name": "Docker 개요",
+        "linkable": true
+      },
+      "introduction": {
+        "name": "소개",
+        "linkable": true
+      },
+      "build-and-push-first-image": {
+        "name": "첫 번째 이미지 빌드 및 푸시",
+        "linkable": true
+      },
+      "develop-with-containers": {
+        "name": "컨테이너로 개발",
+        "linkable": true
+      },
+      "get-docker-desktop": {
+        "name": "Docker Desktop 설치",
+        "linkable": true
+      },
+      "whats-next": {
+        "name": "다음 단계",
+        "linkable": true
+      },
+      "docker-concepts": {
+        "name": "Docker 개념",
+        "linkable": false
+      },
+      "the-basics": {
+        "name": "기본 사항",
+        "linkable": false
+      },
+      "what-is-a-container": {
+        "name": "컨테이너란?",
+        "linkable": true
+      },
+      "what-is-a-registry": {
+        "name": "레지스트리란?",
+        "linkable": true
+      },
+      "what-is-an-image": {
+        "name": "이미지란?",
+        "linkable": true
+      },
+      "what-is-docker-compose": {
+        "name": "Docker Compose란?",
+        "linkable": true
+      },
+      "building-images": {
+        "name": "이미지 빌드",
+        "linkable": false
+      },
+      "understanding-image-layers": {
+        "name": "이미지 레이어 이해",
+        "linkable": true
+      },
+      "writing-a-dockerfile": {
+        "name": "Dockerfile 작성",
+        "linkable": true
+      },
+      "build-tag-and-publish-an-image": {
+        "name": "이미지 빌드, 태그, 게시",
+        "linkable": true
+      },
+      "using-the-build-cache": {
+        "name": "빌드 캐시 사용",
+        "linkable": true
+      },
+      "multi-stage-builds": {
+        "name": "멀티 스테이지 빌드",
+        "linkable": true
+      },
+      "running-containers": {
+        "name": "컨테이너 실행",
+        "linkable": false
+      },
+      "multi-container-applications": {
+        "name": "멀티 컨테이너 애플리케이션",
+        "linkable": true
+      },
+      "overriding-container-defaults": {
+        "name": "컨테이너 기본값 재정의",
+        "linkable": true
+      },
+      "persisting-container-data": {
+        "name": "컨테이너 데이터 유지",
+        "linkable": true
+      },
+      "publishing-ports": {
+        "name": "포트 게시",
+        "linkable": true
+      },
+      "sharing-local-files": {
+        "name": "로컬 파일 공유",
+        "linkable": true
+      },
+      "docker-workshop": {
+        "name": "Docker 워크샵",
+        "linkable": true
+      },
+      "resources": {
+        "name": "리소스",
+        "linkable": true
+      },
+      "workshop": {
+        "name": "워크샵",
+        "linkable": false
+      },
+      "02_our_app": {
+        "name": "애플리케이션 컨테이너화",
+        "linkable": true
+      },
+      "03_updating_app": {
+        "name": "애플리케이션 업데이트",
+        "linkable": true
+      },
+      "04_sharing_app": {
+        "name": "애플리케이션 공유",
+        "linkable": true
+      },
+      "05_persisting_data": {
+        "name": "데이터베이스 유지",
+        "linkable": true
+      },
+      "06_bind_mounts": {
+        "name": "바인드 마운트 사용",
+        "linkable": true
+      },
+      "07_multi_container": {
+        "name": "멀티 컨테이너 애플리케이션",
+        "linkable": true
+      },
+      "08_using_compose": {
+        "name": "Docker Compose 사용",
+        "linkable": true
+      },
+      "09_image_best": {
+        "name": "이미지 빌드 모범 사례",
+        "linkable": true
+      },
+      "10_what_next": {
+        "name": "Docker 워크숍 이후 단계",
+        "linkable": true
+      }
     }
+  },
+  "guides": {
+    "name": "가이드",
+    "linkable": true,
+    "children": {}
+  },
+  "reference": {
+    "name": "참조",
+    "linkable": true,
+    "children": {}
+  },
+  "manuals": {
+    "name": "매뉴얼",
+    "linkable": true,
+    "children": {}
   }
 }
