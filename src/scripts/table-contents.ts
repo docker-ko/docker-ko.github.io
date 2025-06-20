@@ -1,21 +1,27 @@
 const createObserver = (headingMap: Record<string, HTMLLIElement>) => {
-  return new IntersectionObserver((entries) => {
-    const visibleEntry = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+  return new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
 
-    if (visibleEntry) {
-      const id = (visibleEntry.target as HTMLElement).id;
+      if (visibleEntry) {
+        const id = (visibleEntry.target as HTMLElement).id;
 
-      Object.entries(headingMap).forEach(([headingId, li]) => {
-        if (headingId === id) {
-          li.classList.add('border-l-2', 'border-blue-500');
-        } else {
-          li.classList.remove('border-l-2', 'border-blue-500');
-        }
-      });
+        Object.entries(headingMap).forEach(([headingId, li]) => {
+          if (headingId === id) {
+            li.classList.add('border-l-2', 'border-blue-500');
+          } else {
+            li.classList.remove('border-l-2', 'border-blue-500');
+          }
+        });
+      }
+    },
+    {
+      rootMargin: '-60px 0px -60% 0px',
+      threshold: 0.8,
     }
-  });
+  );
 };
 
 export const initializeTableContents = () => {
@@ -30,7 +36,7 @@ export const initializeTableContents = () => {
   const tocTitle = document.createElement('p');
   const tocList = document.createElement('ul');
 
-  tocTitle.classList.add('text-black', 'font-light', 'text-lg', 'pb-5');
+  tocTitle.classList.add('text-black', 'font-normal', 'text-lg', 'pb-5');
   tocTitle.textContent = 'Table of contents';
 
   const headingMap: Record<string, HTMLLIElement> = {};
