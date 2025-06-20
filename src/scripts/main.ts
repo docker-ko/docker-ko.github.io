@@ -1,6 +1,5 @@
 import './components/index';
 import '../styles/content_style.css';
-import '../styles/not_found.css';
 import '../styles/style.css';
 import './load_md';
 import './components/card-component';
