@@ -101,7 +101,7 @@ export default class NavComponent extends HTMLElement {
       : '';
 
     return `
-      <li class="w-70">
+      <li>
         <div class="section__wrapper flex w-full items-center justify-between rounded px-2">
           <div class="w-full truncate py-2">
             ${
@@ -110,7 +110,7 @@ export default class NavComponent extends HTMLElement {
                  href="${item.href_path}">
                 ${item.name}
               </a>`
-                : `<span class="block select-none text-gray-700 dark:text-gray-300">
+                : `<span class="block select-none">
                 ${item.name}
               </span>`
             }
@@ -162,7 +162,7 @@ export default class NavComponent extends HTMLElement {
                  href="${item.href_path}">
                 ${item.name}
               </a>`
-                : `<span class="block select-none text-gray-700 dark:text-gray-300">
+                : `<span class="block select-none">
                 ${item.name}
               </span>`
             }
