@@ -102,7 +102,7 @@ export default class NavComponent extends HTMLElement {
 
     return `
       <li class="w-70">
-        <div class="flex w-full items-center justify-between rounded px-2" id="section__wrapper">
+        <div class="section__wrapper flex w-full items-center justify-between rounded px-2">
           <div class="w-full truncate py-2">
             ${
               item.href_path
@@ -154,7 +154,7 @@ export default class NavComponent extends HTMLElement {
 
     return `
       <li>
-        <div class="flex w-full items-center justify-between rounded px-2" id="section__wrapper">
+        <div class="section__wrapper flex w-full items-center justify-between rounded px-2">
           <div class="w-full truncate py-2">
             ${
               item.href_path
@@ -239,7 +239,7 @@ export default class NavComponent extends HTMLElement {
 
   private toggleSection(button: HTMLButtonElement): void {
     const contentWrapperDiv = button.closest(
-      '#section__wrapper'
+      '.section__wrapper'
     ) as HTMLDivElement;
     const ulElement = contentWrapperDiv?.parentElement?.querySelector(
       'ul.ml-3'
