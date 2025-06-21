@@ -1,28 +1,5 @@
 @import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Table 관련 기본 스타일 */
-@layer base {
-  card-component {
-    @apply block;
-  }
-  table {
-    @apply w-3/4 table-auto;
-  }
-
-  th,
-  td {
-    @apply px-4 py-2 text-justify;
-  }
-
-  thead {
-    @apply bg-gray-200;
-  }
-}
-
 /* 카드 컴포넌트 스타일 */
 @layer components {
   .card {
@@ -52,28 +29,4 @@
   .card-title {
     @apply text-base font-semibold text-gray-700;
   }
-}
-
-/* 전역 스타일 */
-body {
-  font-family: 'Noto Sans KR', Arial, sans-serif;
-  background: #f8fafc;
-  color: #222;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-p {
-  margin: 0 0 1em 0;
 }

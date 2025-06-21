@@ -29,12 +29,9 @@ class HeaderComponent extends HTMLElement {
                 <div class="flex h-full items-center lg:gap-8 gap-2">
                     <div>
                         <a href="/" title="Docker korean translation home page">
-                            <img
-                                src="./imgs/logo/docker-logo-white.svg"
-                                alt="Docker Korea home page"
-                                width="120"
-                                height="24"
-                            />
+                          <p class="w-full text-5xl font-bold text-white">
+                            Docker <span class="text-red-500">K</span><span class="text-blue-800">O</span>
+                          </p>
                         </a>
                     </div>
                     <nav class="mt-1 hidden md:block">

@@ -55,6 +55,7 @@ export async function renderMarkdownWithComponents(
           /(<card-component[\s\S]*?<\/card-component>|<card-component[\s\S]*?\/>|<button-component[\s\S]*?<\/button-component>|<button-component[\s\S]*?\/>)/gi
         )
         .filter(Boolean);
+
       for (const innerToken of innerTokens) {
         if (
           /^<\/?(card-component|button-component)[^>]*?>.*?<\/(card-component|button-component)>$/.test(
@@ -74,13 +75,27 @@ export async function renderMarkdownWithComponents(
 
 async function loadMarkdown(page: string) {
   try {
-    const response = await fetch(`/docs/${page}.md?cache=${Date.now()}`);
-    if (!response.ok) throw new Error(`❌ 페이지를 찾을 수 없습니다: ${page}`);
+    const response = await fetch(`/docs/${page}.md`);
+
+    // HTTP 상태코드 확인
+    if (!response.ok) {
+      throw new Error(`❌ 페이지를 찾을 수 없습니다: ${page}`);
+    }
+
     const mdText = await response.text();
 
+    // Content-Type 확인 (개발 서버가 HTML을 반환하는 경우 대비)
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('text/html')) {
+      throw new Error(`❌ 요청된 경로가 HTML을 반환합니다: ${page}`);
+    }
+
+    // 응답 내용이 HTML인지 확인 (더 정확한 검사)
+    const trimmedText = mdText.trim();
     if (
-      mdText.trim().startsWith('<!DOCTYPE html>') ||
-      mdText.includes('<html>')
+      trimmedText.startsWith('<!DOCTYPE html>') ||
+      trimmedText.startsWith('<html>') ||
+      (trimmedText.startsWith('<title>') && trimmedText.includes('</title>'))
     ) {
       throw new Error(
         `❌ 요청된 경로가 Markdown이 아닌 HTML을 반환합니다: ${page}`
@@ -93,8 +108,8 @@ async function loadMarkdown(page: string) {
   } catch {
     document.getElementById('content')!.innerHTML = `
       <div id="not-found" class="w-full">
-        <p>페이지를 찾을 수 없습니다.</p>
-        <a href="#/home" class="back-home">홈으로 돌아가기</a>
+        <p>열심히 문서를 업데이트하고 있습니다💦. 더 풍부한 한국어 번역 자료를 제공하기 위해 웹사이트 발전에 기여하고 싶다면 <a href="https://github.com/docker-ko/docker-ko.github.io">깃허브 레포지토리 주소</a>를 클릭하세요!</p>
+        <button-component href="#/home" title="홈으로 돌아가기" />
       </div>
     `;
   }

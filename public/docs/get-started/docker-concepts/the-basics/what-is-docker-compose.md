@@ -20,7 +20,7 @@ Docker Compose를 사용하면, 모든 컨테이너와 그 구성들을 단일 Y
 
 Compose는 선언적 도구라는 것을 이해하는 것이 중요합니다. 여러분들은 단순히 정의하고 실행하면 됩니다. 모든 것을 처음부터 다시 만들 필요는 없습니다. 변경 사항을 있는 경우, `docker compose up` 명령을 다시 실행하면 Compose가 파일의 변경 사항을 조정하고 지능적으로 적용합니다.
 
-> ### Dockerfile vs Compose file
+> **Dockerfile vs Compose file**
 >
 > Dockerfile은 컨테이너 이미지를 빌드하는 지침을 제공하고, Compose 파일은 실행 중인 컨테이너를 정의합니다. 꽤 자주, Compose 파일은 특정 서비스에 사용할 이미지를 빌드하기 위해 Dockerfile을 참조합니다.
 
@@ -96,7 +96,7 @@ Docker Compose를 사용하여 이 애플리케이션을 시작했기 때문에 
    ✔ Network todo-list-app_default Removed 0.1s
    ```
 
-   > ### Volume persistence(볼륨 유지)
+   > **Volume persistence(볼륨 유지)**
    >
    > 기본적으로 볼륨은 Compose 스택을 종료할 때 자동으로 제거되지 않습니다. 스택을 다시 시작할 때 데이터를 다시 원할 수 있기 때문입니다.
    >
@@ -108,7 +108,7 @@ Docker Compose를 사용하여 이 애플리케이션을 시작했기 때문에 
 
 2. 또는 Docker Desktop GUI를 사용하여 애플리케이션 스택을 선택하고 **Delete** 버튼을 선택하여 컨테이너를 제거할 수 있습니다.
 
-   > ### Using the GUI for Compose stacks(GUI를 사용한 Compose 스택)
+   > **Using the GUI for Compose stacks(GUI를 사용한 Compose 스택)**
    >
    > GUI에서 Compose 앱의 컨테이너를 제거하면 컨테이너만 제거됩니다. 네트워크와 볼륨을 제거하려면 수동으로 제거해야 합니다.
 

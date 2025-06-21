@@ -1,21 +1,27 @@
 const createObserver = (headingMap: Record<string, HTMLLIElement>) => {
-  return new IntersectionObserver((entries) => {
-    const visibleEntry = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+  return new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
 
-    if (visibleEntry) {
-      const id = (visibleEntry.target as HTMLElement).id;
+      if (visibleEntry) {
+        const id = (visibleEntry.target as HTMLElement).id;
 
-      Object.entries(headingMap).forEach(([headingId, li]) => {
-        if (headingId === id) {
-          li.classList.add('border-l-2', 'border-blue-500');
-        } else {
-          li.classList.remove('border-l-2', 'border-blue-500');
-        }
-      });
+        Object.entries(headingMap).forEach(([headingId, li]) => {
+          if (headingId === id) {
+            li.classList.add('border-l-2', 'border-blue-500');
+          } else {
+            li.classList.remove('border-l-2', 'border-blue-500');
+          }
+        });
+      }
+    },
+    {
+      rootMargin: '-60px 0px -60% 0px',
+      threshold: 0.8,
     }
-  });
+  );
 };
 
 export const initializeTableContents = () => {
@@ -30,7 +36,7 @@ export const initializeTableContents = () => {
   const tocTitle = document.createElement('p');
   const tocList = document.createElement('ul');
 
-  tocTitle.classList.add('text-black', 'font-light', 'text-lg', 'pb-5');
+  tocTitle.classList.add('text-black', 'font-normal', 'text-lg', 'pb-5');
   tocTitle.textContent = 'Table of contents';
 
   const headingMap: Record<string, HTMLLIElement> = {};
@@ -42,11 +48,20 @@ export const initializeTableContents = () => {
       'font-extralight',
       'hover:bg-gray-300',
       'hover:font-semibold',
+      'cursor-pointer'
+    );
+    const link = document.createElement('button');
+    link.classList.add(
+      'flex',
+      'justify-start',
+      'items-stretch',
+      'p-1',
       'cursor-pointer',
+      'w-full',
       'truncate'
     );
-    const link = document.createElement('a');
-    link.classList.add('flex', 'justify-start', 'items-stretch', 'p-1');
+    link.setAttribute('aria-label', heading.textContent || 'Heading Link');
+    link.setAttribute('role', 'link');
 
     const headingText = heading.textContent || '';
     link.textContent =
