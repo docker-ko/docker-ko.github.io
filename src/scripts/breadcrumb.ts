@@ -32,27 +32,24 @@ interface TranslationData {
  * 계층적 구조를 고려하여 현재 경로에서 세그먼트를 찾습니다.
  * @param segments 전체 경로 세그먼트 배열
  * @param currentIndex 현재 처리 중인 세그먼트의 인덱스(깊이를 알기 위함)
- * @returns 해당 세그먼트 데이터 또는 기본값
+ * @returns 해당 세그먼트 데이터 또는 null (데이터가 없는 경우)
  */
-function getSegmentData(segments: string[], currentIndex: number): SegmentData {
+function getSegmentData(
+  segments: string[],
+  currentIndex: number
+): SegmentData | null {
   const translationData = translations as TranslationData;
   let current = translationData[segments[0]];
 
   if (!current) {
-    return {
-      name: segments[currentIndex],
-      linkable: false,
-    };
+    return null;
   }
 
   for (let i = 1; i <= currentIndex; i++) {
     if (current.children && current.children[segments[i]]) {
       current = current.children[segments[i]];
     } else {
-      return {
-        name: segments[currentIndex],
-        linkable: false,
-      };
+      return null;
     }
   }
 
@@ -75,17 +72,18 @@ function generateBreadcrumbItems(): BreadcrumbItem[] {
   ];
 
   let currentPath = '';
-
   pathSegments.forEach((segment, index) => {
+    const segmentData = getSegmentData(pathSegments, index);
     currentPath += `/${segment}`;
 
-    const segmentData = getSegmentData(pathSegments, index);
-
-    breadcrumbItems.push({
-      name: segmentData.name,
-      path: `#${currentPath}`,
-      linkable: segmentData.linkable,
-    });
+    // translations 데이터에 없는 세그먼트는 breadcrumb에 추가하지 않음
+    if (segmentData) {
+      breadcrumbItems.push({
+        name: segmentData.name,
+        path: `#${currentPath}`,
+        linkable: segmentData.linkable,
+      });
+    }
   });
 
   return breadcrumbItems;
