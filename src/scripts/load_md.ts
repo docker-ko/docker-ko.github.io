@@ -55,6 +55,7 @@ export async function renderMarkdownWithComponents(
           /(<card-component[\s\S]*?<\/card-component>|<card-component[\s\S]*?\/>|<button-component[\s\S]*?<\/button-component>|<button-component[\s\S]*?\/>)/gi
         )
         .filter(Boolean);
+
       for (const innerToken of innerTokens) {
         if (
           /^<\/?(card-component|button-component)[^>]*?>.*?<\/(card-component|button-component)>$/.test(
@@ -75,10 +76,12 @@ export async function renderMarkdownWithComponents(
 async function loadMarkdown(page: string) {
   try {
     const response = await fetch(`/docs/${page}.md`);
-    
+
     // HTTP 상태코드 확인
-    if (!response.ok) throw new Error(`❌ 페이지를 찾을 수 없습니다: ${page}`);
-    
+    if (!response.ok) {
+      throw new Error(`❌ 페이지를 찾을 수 없습니다: ${page}`);
+    }
+
     const mdText = await response.text();
 
     // Content-Type 확인 (개발 서버가 HTML을 반환하는 경우 대비)
@@ -87,11 +90,12 @@ async function loadMarkdown(page: string) {
       throw new Error(`❌ 요청된 경로가 HTML을 반환합니다: ${page}`);
     }
 
-    // 응답 내용이 HTML인지 확인
+    // 응답 내용이 HTML인지 확인 (더 정확한 검사)
+    const trimmedText = mdText.trim();
     if (
-      mdText.trim().startsWith('<!DOCTYPE html>') ||
-      mdText.includes('<html>') ||
-      mdText.includes('<title>')
+      trimmedText.startsWith('<!DOCTYPE html>') ||
+      trimmedText.startsWith('<html>') ||
+      (trimmedText.startsWith('<title>') && trimmedText.includes('</title>'))
     ) {
       throw new Error(
         `❌ 요청된 경로가 Markdown이 아닌 HTML을 반환합니다: ${page}`
