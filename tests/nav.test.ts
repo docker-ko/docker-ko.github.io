@@ -1,78 +1,17 @@
 import { describe, it, expect, beforeEach, beforeAll, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { initializeNavFn } from '../src/scripts/nav';
+import NavComponent from '../src/scripts/components/nav-component';
 
 let dom: JSDOM;
 let document: Document;
+let navComponent: NavComponent;
 
 beforeAll(async () => {
   dom = new JSDOM(`
     <!DOCTYPE html>
     <html>
       <body>
-        <div id="nav__get-started">
-          <div>
-            <button id="test-button-1">
-              <span>▼</span>
-              <span class="hidden">▲</span>
-            </button>
-          </div>
-        </div>
-        <div id="nav__content">
-          <ul>
-            <li>
-              <a href="./get-started/get-docker">Get Docker</a>
-            </li>
-            <li>
-              <div id="section__wrapper">
-                <div>
-                  <a href="./get-started/introduction">Introduction</a>
-                </div>
-                <button id="test-button-2">
-                  <span>▼</span>
-                  <span class="hidden">▲</span>
-                </button>
-              </div>
-              <ul class="ml-3">
-                <li>
-                  <a href="./get-started/introduction/get-docker-desktop">Get Docker Desktop</a>
-                </li>
-                <li>
-                  <a href="./get-started/introduction/whats-next">What's next</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div id="section__wrapper">
-                <div>
-                  <button id="docker-concepts-button">Docker concepts</button>
-                </div>
-                <button id="docker-concepts-toggle">
-                  <span>▼</span>
-                  <span class="hidden">▲</span>
-                </button>
-              </div>
-              <ul class="ml-3 hidden">
-                <li>
-                  <div id="section__wrapper">
-                    <div>
-                      <button>The basics</button>
-                    </div>
-                    <button>
-                      <span>▼</span>
-                      <span class="hidden">▲</span>
-                    </button>
-                  </div>
-                  <ul class="ml-3 hidden">
-                    <li>
-                      <a href="./get-started/docker-concepts/the-basics/what-is-a-container">What is a container?</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <nav-component></nav-component>
       </body>
     </html>
   `);
@@ -82,112 +21,118 @@ beforeAll(async () => {
   (global as any).window = dom.window;
   (global as any).document = dom.window.document;
   (global as any).HTMLElement = dom.window.HTMLElement;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+  (global as any).customElements = {
+    define: vi.fn(),
+    get: vi.fn(),
+    whenDefined: vi.fn()
+  };
+  
+  // fetch 모킹
+  (global as any).fetch = vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      "get-started": {
+        name: "Get started",
+        href_path: "#/get-started",
+        children: {
+          "introduction": {
+            name: "Introduction",
+            href_path: "#/get-started/introduction",
+            children: {
+              "get-docker-desktop": {
+                name: "Get Docker Desktop",
+                href_path: "#/get-started/introduction/get-docker-desktop"
+              }
+            }
+          }
+        }
+      }
+    })
+  });
 });
 
 beforeEach(() => {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  document = (global as any).document;
+  document = global.document;
 
-  // 각 테스트 전에 hidden 클래스 초기화
-  const spans = document.querySelectorAll('span');
-  spans.forEach((span, index) => {
-    if (index % 2 === 0) {
-      span.classList.remove('hidden'); // 짝수 인덱스: 보이게
-    } else {
-      span.classList.add('hidden'); // 홀수 인덱스: 숨기게
+  // 새로운 nav-component 인스턴스 생성
+  navComponent = new NavComponent();
+  document.body.innerHTML = '';
+  document.body.appendChild(navComponent);
+});
+
+describe('NavComponent 초기화 확인', () => {
+  it('NavComponent가 올바르게 렌더링되는지 확인', async () => {
+    // Act
+    await navComponent.render();
+    
+    // Assert
+    expect(navComponent.innerHTML).toContain('nav__content');
+    expect(navComponent.innerHTML).toContain('Get started');
+  });
+
+  it('toggle 버튼이 올바르게 렌더링되는지 확인', async () => {
+    // Act
+    await navComponent.render();
+    const buttons = navComponent.querySelectorAll('button[aria-label="Toggle section"]');
+
+    // Assert
+    expect(buttons.length).toBeGreaterThan(0);
+  });
+});
+
+describe('NavComponent 토글 기능 확인', () => {
+  it('버튼 클릭 시 UL 요소의 hidden 클래스가 토글되는지 확인', async () => {
+    // Arrange
+    await navComponent.render();
+    const button = navComponent.querySelector('button[aria-label="Toggle section"]') as HTMLButtonElement;
+    const ulElement = button?.closest('li')?.querySelector('ul.ml-3') as HTMLUListElement;
+
+    // Act
+    if (button) {
+      button.click();
     }
-  });
-
-  // ul.ml-3 요소의 hidden 클래스 제거
-  const ulElement = document.querySelector('ul.ml-3');
-  ulElement?.classList.remove('hidden');
-});
-
-describe('네비게이션 초기화 확인', () => {
-  it('네비게이션 버튼들이 올바르게 선택되는지 확인', () => {
-    // Arrange & Act
-    initializeNavFn();
-    const buttons = document.querySelectorAll(
-      'div#nav__get-started div > button, div#nav__content li > div > button'
-    );
 
     // Assert
-    expect(buttons.length).toBe(4); // 실제 DOM에서 선택되는 버튼 개수에 맞춤
-  });
-
-  it('버튼에 이벤트 리스너가 추가되는지 확인', () => {
-    // Arrange
-    const button = document.getElementById(
-      'test-button-1'
-    ) as HTMLButtonElement;
-    const clickSpy = vi.fn();
-    button.addEventListener = vi.fn().mockImplementation((event, handler) => {
-      if (event === 'click') {
-        clickSpy.mockImplementation(handler);
-      }
-    });
-
-    // Act
-    initializeNavFn();
-
-    // Assert
-    expect(button.addEventListener).toHaveBeenCalledWith(
-      'click',
-      expect.any(Function)
-    );
+    expect(ulElement?.classList.contains('hidden')).toBe(false);
   });
 });
 
-describe('UL 요소 토글 기능 확인', () => {
-  it('버튼 클릭 시 UL 요소의 hidden 클래스가 토글되는지 확인', () => {
+describe('NavComponent Span 요소 토글 기능 확인', () => {
+  it('버튼 클릭 시 span 요소들의 hidden 클래스가 토글되는지 확인', async () => {
     // Arrange
-    initializeNavFn();
-    const button = document.getElementById(
-      'test-button-2'
-    ) as HTMLButtonElement;
-    const ulElement = document.querySelector('ul.ml-3') as HTMLUListElement;
+    await navComponent.render();
+    const button = navComponent.querySelector('button[aria-label="Toggle section"]') as HTMLButtonElement;
+    const spans = button?.querySelectorAll('span');
+
+    // 초기 상태 확인
+    const initialFirstHidden = spans?.[0].classList.contains('hidden');
+    const initialSecondHidden = spans?.[1].classList.contains('hidden');
 
     // Act
-    button.click();
+    if (button) {
+      button.click();
+    }
 
     // Assert
-    expect(ulElement.classList.contains('hidden')).toBe(true);
-  });
-});
-
-describe('Span 요소 토글 기능 확인', () => {
-  it('버튼 클릭 시 span 요소들의 hidden 클래스가 토글되는지 확인(하위 카테고리가 더 이상 없는 경우)', () => {
-    // Arrange
-    initializeNavFn();
-    const button = document.getElementById(
-      'test-button-1'
-    ) as HTMLButtonElement;
-    const spans = button.querySelectorAll('span');
-
-    // Act
-    button.click();
-
-    // Assert
-    expect(spans[0].classList.contains('hidden')).toBe(true);
-    expect(spans[1].classList.contains('hidden')).toBe(false);
+    expect(spans?.[0].classList.contains('hidden')).toBe(!initialFirstHidden);
+    expect(spans?.[1].classList.contains('hidden')).toBe(!initialSecondHidden);
   });
 
-  it('버튼 클릭 시 형제 요소의 span 요소들의 클래스가 토글되는지 확인(하위 카테고리가 더 있는 경우)', () => {
+  it('aria-expanded 속성이 올바르게 토글되는지 확인', async () => {
     // Arrange
-    initializeNavFn();
-    const buttonWithoutSpan = document.getElementById(
-      'docker-concepts-button'
-    ) as HTMLButtonElement;
-    const siblingButton = buttonWithoutSpan.parentElement
-      ?.nextElementSibling as HTMLButtonElement;
-    const siblingSpans = siblingButton?.querySelectorAll('span');
+    await navComponent.render();
+    const button = navComponent.querySelector('button[aria-label="Toggle section"]') as HTMLButtonElement;
+    
+    // 초기 상태 확인
+    const initialExpanded = button?.getAttribute('aria-expanded') === 'true';
 
     // Act
-    buttonWithoutSpan.click();
+    if (button) {
+      button.click();
+    }
 
     // Assert
-    expect(siblingSpans?.[0].classList.contains('hidden')).toBe(false);
-    expect(siblingSpans?.[1].classList.contains('hidden')).toBe(true);
+    const finalExpanded = button?.getAttribute('aria-expanded') === 'true';
+    expect(finalExpanded).toBe(!initialExpanded);
   });
 });
