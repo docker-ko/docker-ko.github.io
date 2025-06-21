@@ -1,0 +1,186 @@
+{
+  "get-docker": {
+    "name": "Get Docker",
+    "docs_path": "/docs/get-started/get-docker",
+    "href_path": "#/get-started/get-docker"
+  },
+  "docker-overview": {
+    "name": "What is Docker?",
+    "docs_path": "/docs/get-started/docker-overview",
+    "href_path": "#/get-started/docker-overview"
+  },
+  "introduction": {
+    "name": "Introduction",
+    "docs_path": "/docs/get-started/introduction",
+    "href_path": "#/get-started/introduction",
+    "children": {
+      "get-docker-desktop": {
+        "name": "Get Docker Desktop",
+        "docs_path": "/docs/get-started/introduction/get-docker-desktop",
+        "href_path": "#/get-started/introduction/get-docker-desktop"
+      },
+      "develop-with-containers": {
+        "name": "Develop with containers",
+        "docs_path": "/docs/get-started/introduction/develop-with-containers",
+        "href_path": "#/get-started/introduction/develop-with-containers"
+      },
+      "build-and-push-first-image": {
+        "name": "Build and push your first image",
+        "docs_path": "/docs/get-started/introduction/build-and-push-first-image",
+        "href_path": "#/get-started/introduction/build-and-push-first-image"
+      },
+      "whats-next": {
+        "name": "What's next",
+        "docs_path": "/docs/get-started/introduction/whats-next",
+        "href_path": "#/get-started/introduction/whats-next"
+      }
+    }
+  },
+  "docker-concepts": {
+    "name": "Docker concepts",
+    "children": {
+      "the-basics": {
+        "name": "The basics",
+        "children": {
+          "what-is-a-container": {
+            "name": "What is a container?",
+            "docs_path": "/docs/get-started/docker-concepts/the-basics/what-is-a-container",
+            "href_path": "#/get-started/docker-concepts/the-basics/what-is-a-container"
+          },
+          "what-is-an-image": {
+            "name": "What is an image?",
+            "docs_path": "/docs/get-started/docker-concepts/the-basics/what-is-an-image",
+            "href_path": "#/get-started/docker-concepts/the-basics/what-is-an-image"
+          },
+          "what-is-a-registry": {
+            "name": "What is a registry?",
+            "docs_path": "/docs/get-started/docker-concepts/the-basics/what-is-a-registry",
+            "href_path": "#/get-started/docker-concepts/the-basics/what-is-a-registry"
+          },
+          "what-is-docker-compose": {
+            "name": "What is Docker Compose?",
+            "docs_path": "/docs/get-started/docker-concepts/the-basics/what-is-docker-compose",
+            "href_path": "#/get-started/docker-concepts/the-basics/what-is-docker-compose"
+          }
+        }
+      },
+      "building-images": {
+        "name": "Building images",
+        "children": {
+          "understanding-image-layers": {
+            "name": "Understanding the image layers",
+            "docs_path": "/docs/get-started/docker-concepts/building-images/understanding-image-layers",
+            "href_path": "#/get-started/docker-concepts/building-images/understanding-image-layers"
+          },
+          "writing-a-dockerfile": {
+            "name": "Writing a Dockerfile",
+            "docs_path": "/docs/get-started/docker-concepts/building-images/writing-a-dockerfile",
+            "href_path": "#/get-started/docker-concepts/building-images/writing-a-dockerfile"
+          },
+          "build-tag-and-publish-an-image": {
+            "name": "Build, tag, and publish an image",
+            "docs_path": "/docs/get-started/docker-concepts/building-images/build-tag-and-publish-an-image",
+            "href_path": "#/get-started/docker-concepts/building-images/build-tag-and-publish-an-image"
+          },
+          "using-the-build-cache": {
+            "name": "Using the build cache",
+            "docs_path": "/docs/get-started/docker-concepts/building-images/using-the-build-cache",
+            "href_path": "#/get-started/docker-concepts/building-images/using-the-build-cache"
+          },
+          "multi-stage-builds": {
+            "name": "Multi-stage builds",
+            "docs_path": "/docs/get-started/docker-concepts/building-images/multi-stage-builds",
+            "href_path": "#/get-started/docker-concepts/building-images/multi-stage-builds"
+          }
+        }
+      },
+      "running-containers": {
+        "name": "Running containers",
+        "children": {
+          "publishing-ports": {
+            "name": "Publishing and exposing ports",
+            "docs_path": "/docs/get-started/docker-concepts/running-containers/publishing-ports",
+            "href_path": "#/get-started/docker-concepts/running-containers/publishing-ports"
+          },
+          "overriding-container-defaults": {
+            "name": "Overriding container defaults",
+            "docs_path": "/docs/get-started/docker-concepts/running-containers/overriding-container-defaults",
+            "href_path": "#/get-started/docker-concepts/running-containers/overriding-container-defaults"
+          },
+          "persisting-container-data": {
+            "name": "Persisting container data",
+            "docs_path": "/docs/get-started/docker-concepts/running-containers/persisting-container-data",
+            "href_path": "#/get-started/docker-concepts/running-containers/persisting-container-data"
+          },
+          "sharing-local-files": {
+            "name": "Sharing local files with containers",
+            "docs_path": "/docs/get-started/docker-concepts/running-containers/sharing-local-files",
+            "href_path": "#/get-started/docker-concepts/running-containers/sharing-local-files"
+          },
+          "multi-container-applications": {
+            "name": "Multi-container applications",
+            "docs_path": "/docs/get-started/docker-concepts/running-containers/multi-container-applications",
+            "href_path": "#/get-started/docker-concepts/running-containers/multi-container-applications"
+          }
+        }
+      }
+    }
+  },
+  "workshop": {
+    "name": "Docker workshop",
+    "docs_path": "/docs/get-started/workshop",
+    "href_path": "#/get-started/docker-workshop",
+    "children": {
+      "02_our_app": {
+        "name": "Part 1: Containerize an application",
+        "docs_path": "/docs/get-started/workshop/02_our_app",
+        "href_path": "#/get-started/workshop/02_our_app"
+      },
+      "03_updating_app": {
+        "name": "Part 2: Update the application",
+        "docs_path": "/docs/get-started/workshop/03_updating_app",
+        "href_path": "#/get-started/workshop/03_updating_app"
+      },
+      "04_sharing_app": {
+        "name": "Part 3: Share the application",
+        "docs_path": "/docs/get-started/workshop/04_sharing_app",
+        "href_path": "#/get-started/workshop/04_sharing_app"
+      },
+      "05_persisting_data": {
+        "name": "Part 4: Persist the DB",
+        "docs_path": "/docs/get-started/workshop/05_persisting_data",
+        "href_path": "#/get-started/workshop/05_persisting_data"
+      },
+      "06_bind_mounts": {
+        "name": "Part 5: Use bind mounts",
+        "docs_path": "/docs/get-started/workshop/06_bind_mounts",
+        "href_path": "#/get-started/workshop/06_bind_mounts"
+      },
+      "07_multi_container": {
+        "name": "Part 6: Multi-container apps",
+        "docs_path": "/docs/get-started/workshop/07_multi_container",
+        "href_path": "#/get-started/workshop/07_multi_container"
+      },
+      "08_using_compose": {
+        "name": "Part 7: Use Docker Compose",
+        "docs_path": "/docs/get-started/workshop/08_using_compose",
+        "href_path": "#/get-started/workshop/08_using_compose"
+      },
+      "09_image_best": {
+        "name": "Part 8: Image-building best practices",
+        "docs_path": "/docs/get-started/workshop/09_image_best",
+        "href_path": "#/get-started/workshop/09_image_best"
+      },
+      "10_what_next": {
+        "name": "Part 9: What next?",
+        "docs_path": "/docs/get-started/workshop/10_what_next",
+        "href_path": "#/get-started/workshop/10_what_next"
+      }
+    }
+  },
+  "resources": {
+    "name": "Educational resources",
+    "docs_path": "/docs/get-started/resources",
+    "href_path": "#/get-started/resources"
+  }
+}
