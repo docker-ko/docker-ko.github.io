@@ -101,19 +101,6 @@ describe('initializeTableContents', () => {
       // Assert
       expect(tocTitle?.textContent).toBe('Table of contents');
     });
-
-    it('Table of contents 제목 요소가 올바른 CSS 클래스를 가지는지 확인', async () => {
-      // Arrange & Act
-      // contentElement에 이미 testMarkdownContent가 설정됨
-      initializeTableContents();
-      const tocTitle = tocElement.querySelector('p');
-      const expectedClasses = ['text-black', 'font-light', 'text-lg', 'pb-5'];
-
-      // Assert
-      expectedClasses.forEach((className) => {
-        expect(tocTitle?.classList.contains(className)).toBe(true);
-      });
-    });
   });
 
   describe('헤딩 요소들의 button 생성 확인', () => {

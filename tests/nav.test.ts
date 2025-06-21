@@ -21,12 +21,12 @@ beforeAll(async () => {
         <div id="nav__content">
           <ul>
             <li>
-              <a href="#/get-started/get-docker">Get Docker</a>
+              <a href="./get-started/get-docker">Get Docker</a>
             </li>
             <li>
               <div id="section__wrapper">
                 <div>
-                  <a href="#/get-started/introduction">Introduction</a>
+                  <a href="./get-started/introduction">Introduction</a>
                 </div>
                 <button id="test-button-2">
                   <span>▼</span>
@@ -35,10 +35,10 @@ beforeAll(async () => {
               </div>
               <ul class="ml-3">
                 <li>
-                  <a href="#/get-started/introduction/get-docker-desktop">Get Docker Desktop</a>
+                  <a href="./get-started/introduction/get-docker-desktop">Get Docker Desktop</a>
                 </li>
                 <li>
-                  <a href="#/get-started/introduction/whats-next">What's next</a>
+                  <a href="./get-started/introduction/whats-next">What's next</a>
                 </li>
               </ul>
             </li>
@@ -65,7 +65,7 @@ beforeAll(async () => {
                   </div>
                   <ul class="ml-3 hidden">
                     <li>
-                      <a href="#/get-started/docker-concepts/the-basics/what-is-a-container">What is a container?</a>
+                      <a href="./get-started/docker-concepts/the-basics/what-is-a-container">What is a container?</a>
                     </li>
                   </ul>
                 </li>
