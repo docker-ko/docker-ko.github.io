@@ -34,7 +34,7 @@ export default class NavComponent extends HTMLElement {
     this.currentRoute = this.getCurrentRoute();
 
     try {
-      const response = await fetch(`/src/data/nav/${this.currentRoute}.json`);
+      const response = await fetch(`/data/nav/${this.currentRoute}.json`);
       if (!response.ok) {
         throw new Error(
           `Failed to load navigation data for ${this.currentRoute}`
@@ -44,7 +44,7 @@ export default class NavComponent extends HTMLElement {
     } catch (error) {
       console.error('Error loading navigation data:', error);
       // 기본값으로 get-started 데이터 반환
-      const fallbackResponse = await fetch('/src/data/nav/get-started.json');
+      const fallbackResponse = await fetch('/data/nav/get-started.json');
       return await fallbackResponse.json();
     }
   }
