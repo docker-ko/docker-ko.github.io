@@ -65,6 +65,7 @@
 #content pre {
   padding: 0.5rem;
   border: 2px solid #e1e2e6;
+  background: #f8f9fa;
   border-radius: 8px;
   overflow-x: auto;
   line-height: 1.5;

@@ -21,7 +21,7 @@ export default class ButtonComponent extends HTMLElement {
 
     this.innerHTML = `
             <button type="button" class="not-prose my-4">
-                <a href="${href}" class="cursor-pointer py-2 px-4 rounded bg-[#086dd7] hover:bg-[#2560ff] text-white!">
+                <a href="${href}" class="cursor-pointer py-2 px-4 rounded bg-docker-primary hover:bg-docker-hover text-white!">
                     ${title}
                 </a>
             </button>
