@@ -1,10 +1,10 @@
 var $e=Object.defineProperty;var Se=(n,e,t)=>e in n?$e(n,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):n[e]=t;var b=(n,e,t)=>Se(n,typeof e!="symbol"?e+"":e,t);(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const i of s)if(i.type==="childList")for(const c of i.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function t(s){const i={};return s.integrity&&(i.integrity=s.integrity),s.referrerPolicy&&(i.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?i.credentials="include":s.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function r(s){if(s.ep)return;s.ep=!0;const i=t(s);fetch(s.href,i)}})();class Re extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
-      <footer class="w-screen text-center py-4 bg-[#086dd7] text-white relative bottom-0">
+      <footer class="w-screen text-center py-4 bg-docker-primary text-white relative bottom-0">
         © 2025 Docker 한국어 문서 프로젝트 |
         <a href="https://github.com/docker-ko/docker-ko.github.io" class="hover:underline text-[#b0c4de]">GitHub</a>
       </footer>
     `}}customElements.define("footer-component",Re);class Te extends HTMLElement{constructor(){super()}setupNavigationListeners(){window.addEventListener("hashchange",()=>{const e=window.location.hash.replace("#","");this.querySelectorAll(".nav-item").forEach(r=>{const s=r.getAttribute("data-path");s&&e.startsWith(s)?(r.classList.remove("border-b-transparent"),r.classList.add("border-b-white")):(r.classList.remove("border-b-white"),r.classList.add("border-b-transparent"))})})}connectedCallback(){this.innerHTML=`
-      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-[#086dd7]">
+      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-docker-primary">
             <div class="max-w-[1920px] mx-auto flex lg:gap-8 gap-2 h-full items-center justify-between">
                 <div class="flex h-full items-center lg:gap-8 gap-2">
                     <div>
@@ -49,7 +49,7 @@ var $e=Object.defineProperty;var Se=(n,e,t)=>e in n?$e(n,e,{enumerable:!0,config
       </div>
     `}}customElements.define("card-component",Le);class Ce extends HTMLElement{static get observedAttributes(){return["href","title"]}constructor(){super()}attributeChangedCallback(){this.render()}connectedCallback(){this.render()}render(){const e=this.getAttribute("href")||"#",t=this.getAttribute("title")||"";this.innerHTML=`
             <button type="button" class="not-prose my-4">
-                <a href="${e}" class="cursor-pointer py-2 px-4 rounded bg-[#086dd7] hover:bg-[#2560ff] text-white!">
+                <a href="${e}" class="cursor-pointer py-2 px-4 rounded bg-docker-primary hover:bg-docker-hover text-white!">
                     ${t}
                 </a>
             </button>
