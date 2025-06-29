@@ -32,6 +32,7 @@
     "vitest": "^3.2.2"
   },
   "dependencies": {
+    "@microsoft/applicationinsights-web": "^3.3.9",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "marked": "^15.0.7",

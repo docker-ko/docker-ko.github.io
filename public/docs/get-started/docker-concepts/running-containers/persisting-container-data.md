@@ -2,10 +2,12 @@
 
 <div class="youtube-video">
    <iframe 
-    src="https://www.youtube.com/embed/10_2BjqB_Ls" 
-    frameborder="0" 
+    src="https://www.youtube-nocookie.com/embed/10_2BjqB_Ls?rel=0&modestbranding=1&playsinline=1" 
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen
+    loading="lazy"
+    title="Persisting container data"
+    referrerpolicy="strict-origin-when-cross-origin"
    >
   </iframe>
 </div>
