@@ -5,7 +5,7 @@
   font-weight: 500;
   margin-bottom: 1rem;
   margin-top: 2rem;
-  color: #444;
+  color: var(--color-content-heading);
 }
 
 #content h1 {
@@ -30,14 +30,14 @@
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  color: #222;
+  color: var(--color-content-text);
 }
 
 #content ul,
 #content ol {
   margin-left: 1.5rem;
   padding-left: 1rem;
-  color: #222;
+  color: var(--color-content-text);
 }
 
 #content ul {
@@ -64,8 +64,8 @@
 
 #content pre {
   padding: 0.5rem;
-  border: 2px solid #e1e2e6;
-  background: #f8f9fa;
+  border: 2px solid var(--color-content-code-border);
+  background: var(--color-content-code-bg);
   border-radius: 8px;
   overflow-x: auto;
   line-height: 1.5;
@@ -74,36 +74,36 @@
 
 #content pre code {
   display: block;
-  background: #fff;
-  color: #000000;
+  background: var(--color-white);
+  color: var(--color-black);
   white-space: pre-wrap;
 }
 
 #content code {
   font-size: 13px;
-  background-color: #e1e2e6;
-  color: #000000;
+  background-color: var(--color-content-code-inline);
+  color: var(--color-black);
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
 }
 
 #content blockquote {
-  border-left: 4px solid #007bff;
+  border-left: 4px solid var(--color-content-blockquote);
   padding: 0.75rem 1rem;
   margin: 1rem 0;
-  background-color: #f8f9fa;
+  background-color: var(--color-content-code-bg);
   font-style: italic;
-  color: #555;
+  color: var(--color-content-muted);
 }
 
 #content a {
-  color: #007bff;
+  color: var(--color-content-link);
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: #007bff;
+    color: var(--color-content-link);
   }
 
   &.external-link::after {
