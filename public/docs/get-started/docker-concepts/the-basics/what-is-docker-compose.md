@@ -2,10 +2,12 @@
 
 <div class="youtube-video">
    <iframe 
-    src="https://www.youtube.com/embed/xhcUIK4fGtY" 
-    frameborder="0" 
+    src="https://www.youtube-nocookie.com/embed/xhcUIK4fGtY?rel=0&modestbranding=1&playsinline=1" 
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen
+    loading="lazy"
+    title="What is Docker Compose?"
+    referrerpolicy="strict-origin-when-cross-origin"
    >
   </iframe>
 </div>

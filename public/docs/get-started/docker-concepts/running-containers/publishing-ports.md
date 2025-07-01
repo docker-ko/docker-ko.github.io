@@ -2,10 +2,12 @@
 
 <div class="youtube-video">
    <iframe 
-    src="https://www.youtube.com/embed/9JnqOmJ96ds" 
-    frameborder="0" 
+    src="https://www.youtube-nocookie.com/embed/9JnqOmJ96ds?rel=0&modestbranding=1&playsinline=1" 
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen
+    loading="lazy"
+    title="Publishing and exposing ports"
+    referrerpolicy="strict-origin-when-cross-origin"
    >
   </iframe>
 </div>
