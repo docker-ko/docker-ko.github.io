@@ -24,7 +24,7 @@ class HeaderComponent extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-[#086dd7]">
+      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-docker-primary">
             <div class="max-w-[1920px] mx-auto flex lg:gap-8 gap-2 h-full items-center justify-between">
                 <div class="flex h-full items-center lg:gap-8 gap-2">
                     <div>
