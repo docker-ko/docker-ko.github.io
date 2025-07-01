@@ -1,9 +1,9 @@
-module.exports = {
-  darkMode: 'media', // 또는 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
     './public/**/*.md',
     './src/scripts/components/*.{js,ts,jsx,tsx}'
-  ],
+  ]
 };

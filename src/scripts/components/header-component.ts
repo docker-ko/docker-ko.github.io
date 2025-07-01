@@ -24,29 +24,29 @@ class HeaderComponent extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-[#086dd7]">
+      <header class="w-full sticky top-0 z-20 h-16 px-6 text-white bg-docker-primary">
             <div class="max-w-[1920px] mx-auto flex lg:gap-8 gap-2 h-full items-center justify-between">
                 <div class="flex h-full items-center lg:gap-8 gap-2">
                     <div>
                         <a href="/" title="Docker korean translation home page">
                           <p class="w-full text-5xl font-bold text-white">
-                            Docker <span class="text-red-500">K</span><span class="text-blue-800">O</span>
+                            Docker <span class="text-red-500">K</span><span class="text-blue-300">O</span>
                           </p>
                         </a>
                     </div>
                     <nav class="mt-1 hidden md:block">
                         <ul class="flex text-sm md:text-base lg:gap-4">
-                            <li class="nav-item border-b-4 border-transparent hover:border-white/20 cursor-pointer" data-path="/get-started">
-                                <a class="block px-2 py-1 whitespace-nowrap" href="#/get-started">Get started</a>
+                            <li class="nav-item border-b-4 border-transparent hover:border-white/30 cursor-pointer transition-colors duration-200" data-path="/get-started">
+                                <a class="block px-2 py-1 whitespace-nowrap text-white hover:text-gray-100" href="#/get-started">Get started</a>
                             </li>
-                            <li class="nav-item border-b-4 border-transparent hover:border-white/20 cursor-pointer" data-path="/guides">
-                                <a class="block px-2 py-1 whitespace-nowrap" href="#/guides">Guides</a>
+                            <li class="nav-item border-b-4 border-transparent hover:border-white/30 cursor-pointer transition-colors duration-200" data-path="/guides">
+                                <a class="block px-2 py-1 whitespace-nowrap text-white hover:text-gray-100" href="#/guides">Guides</a>
                             </li>
-                            <li class="nav-item border-b-4 border-transparent hover:border-white/20 cursor-pointer" data-path="/manuals">
-                                <a class="block px-2 py-1 whitespace-nowrap" href="#/manuals">Manuals</a>
+                            <li class="nav-item border-b-4 border-transparent hover:border-white/30 cursor-pointer transition-colors duration-200" data-path="/manuals">
+                                <a class="block px-2 py-1 whitespace-nowrap text-white hover:text-gray-100" href="#/manuals">Manuals</a>
                             </li>
-                            <li class="nav-item border-b-4 border-transparent hover:border-white/20 cursor-pointer" data-path="/reference">
-                                <a class="block px-2 py-1 whitespace-nowrap" href="#/reference">Reference</a>
+                            <li class="nav-item border-b-4 border-transparent hover:border-white/30 cursor-pointer transition-colors duration-200" data-path="/reference">
+                                <a class="block px-2 py-1 whitespace-nowrap text-white hover:text-gray-100" href="#/reference">Reference</a>
                             </li>
                         </ul>
                     </nav>
