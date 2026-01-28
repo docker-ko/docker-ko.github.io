@@ -66,6 +66,18 @@ Docker 한국어 문서 프로젝트를 개발하면서 마주친 문제들과 �
 
 ---
 
+### 5. [Docker Compose Named Volume으로 인한 의존성 동기화 문제](./docker-volume-node-modules-issue.md)
+
+**문제**: Sentry 패키지 추가 후 Docker 컨테이너에서 `@sentry/vite-plugin`을 찾을 수 없음
+
+- **원인**: Named volume이 영속적으로 유지되어 package.json 변경 시 자동 동기화 안 됨
+- **해결**: Named volume에서 Anonymous volume으로 변경, `docker-compose down` 시 자동 정리
+- **결과**: package.json 변경 시 수동 볼륨 삭제 불필요, 브랜치 전환 시 깨끗한 환경 보장
+
+**핵심 교훈**: 개발 환경에서는 영속성보다 재현 가능성이 중요, 적재적소의 볼륨 타입 선택
+
+---
+
 ## 🎯 공통 교훈
 
 ### 1. 단순함의 가치
