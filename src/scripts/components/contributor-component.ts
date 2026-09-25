@@ -27,8 +27,8 @@ export default class ContributorComponent extends HTMLElement {
     this.render();
   }
 
-  private normalizeGitHubUsername(username: string): string {
-    return username.replace(/[^a-zA-Z0-9-]/g, '') || 'docker-ko';
+  private isValidGitHubUsername(username: string): boolean {
+    return /^(?!-)(?!.*--)[a-zA-Z0-9-]{1,39}(?<!-)$/.test(username);
   }
 
   render() {
@@ -142,7 +142,9 @@ export default class ContributorComponent extends HTMLElement {
     } else {
       const escapedUsername = escapeHtml(username);
       const usernameAttribute = escapeHtmlAttribute(username);
-      const githubProfileUrl = `https://github.com/${this.normalizeGitHubUsername(username)}`;
+      const githubProfileUrl = this.isValidGitHubUsername(username)
+        ? `https://github.com/${username}`
+        : 'https://github.com/docker-ko/docker-ko.github.io/graphs/contributors';
       const githubUrl = escapeHtmlAttribute(sanitizeUrl(githubProfileUrl));
       const avatarUrl = escapeHtmlAttribute(
         sanitizeAssetUrl(

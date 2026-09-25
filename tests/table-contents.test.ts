@@ -142,9 +142,9 @@ describe('initializeTableContents', () => {
       const h2Elements = contentElement.querySelectorAll('h2');
 
       // Assert
-      h2Elements.forEach((heading, index) => {
-        expect(heading.id).toBe(`toc-heading-${index}`);
-      });
+      expect(h2Elements[0].id).toBe('the-basics');
+      expect(h2Elements[1].id).toBe('building-images');
+      expect(h2Elements[2].id).toBe('running-containers');
     });
 
     it('기존 헤딩 id가 있으면 유지됨', async () => {
@@ -154,6 +154,14 @@ describe('initializeTableContents', () => {
       initializeTableContents();
 
       expect(firstHeading!.id).toBe('existing-heading-id');
+    });
+
+    it('기존 숫자 앵커 호환용 legacy anchor를 생성함', async () => {
+      initializeTableContents();
+
+      expect(document.getElementById('0')).toBeTruthy();
+      expect(document.getElementById('1')).toBeTruthy();
+      expect(document.getElementById('2')).toBeTruthy();
     });
 
     it('button 클릭 시 해당 섹션으로 스크롤 이동이 정확히 실행되는지 확인', async () => {

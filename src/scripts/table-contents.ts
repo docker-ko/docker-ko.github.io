@@ -1,5 +1,54 @@
 import { getElement } from './utils/dom';
 
+const createHeadingSlug = (
+  headingText: string,
+  fallbackIndex: number
+): string => {
+  const slug = headingText
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]+/gu, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return slug || `toc-heading-${fallbackIndex}`;
+};
+
+const createUniqueHeadingId = (
+  headingText: string,
+  fallbackIndex: number,
+  usedIds: Set<string>
+): string => {
+  const baseId = createHeadingSlug(headingText, fallbackIndex);
+  let nextId = baseId;
+  let suffix = 1;
+
+  while (usedIds.has(nextId)) {
+    nextId = `${baseId}-${suffix}`;
+    suffix += 1;
+  }
+
+  usedIds.add(nextId);
+  return nextId;
+};
+
+const removeLegacyAnchors = (content: HTMLElement): void => {
+  content
+    .querySelectorAll('[data-toc-legacy-anchor="true"]')
+    .forEach((anchor) => anchor.remove());
+};
+
+const insertLegacyAnchor = (heading: Element, index: number): void => {
+  if (document.getElementById(index.toString())) {
+    return;
+  }
+
+  const legacyAnchor = document.createElement('span');
+  legacyAnchor.id = index.toString();
+  legacyAnchor.setAttribute('data-toc-legacy-anchor', 'true');
+  legacyAnchor.setAttribute('aria-hidden', 'true');
+  heading.parentNode?.insertBefore(legacyAnchor, heading);
+};
+
 const createObserver = (headingMap: Record<string, HTMLLIElement>) => {
   return new IntersectionObserver(
     (entries) => {
@@ -43,6 +92,7 @@ export const initializeTableContents = (): void => {
   }
 
   toc.innerHTML = '';
+  removeLegacyAnchors(content);
 
   const headings = content.querySelectorAll('h2, h3');
 
@@ -58,6 +108,13 @@ export const initializeTableContents = (): void => {
   tocTitle.textContent = 'Table of contents';
 
   const headingMap: Record<string, HTMLLIElement> = {};
+  const usedIds = new Set<string>();
+
+  headings.forEach((heading) => {
+    if (heading.id) {
+      usedIds.add(heading.id);
+    }
+  });
 
   headings.forEach((heading, index) => {
     const listItem = document.createElement('li');
@@ -106,7 +163,13 @@ export const initializeTableContents = (): void => {
       listItem.classList.add('pl-3');
     }
 
-    const headingId = heading.id || `toc-heading-${index}`;
+    const headingId =
+      heading.id || createUniqueHeadingId(headingText, index, usedIds);
+
+    if (!heading.id) {
+      insertLegacyAnchor(heading, index);
+    }
+
     heading.id = headingId;
     headingMap[headingId] = listItem;
   });
