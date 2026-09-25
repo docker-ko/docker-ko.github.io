@@ -62,6 +62,10 @@ export default class NavComponent extends HTMLElement {
     );
   }
 
+  private normalizeCheckboxIdPart(value: string): string {
+    return value.toLowerCase().replace(/\s+/g, '-').replace(/[#+]/g, '');
+  }
+
   private generateGetStartedNav(data: GetStartedData): string {
     return Object.entries(data)
       .map(([, item]) => {
@@ -212,10 +216,7 @@ export default class NavComponent extends HTMLElement {
     return Object.entries(data)
       .map(([category, items]) => {
         const safeCategory = escapeHtml(category);
-        const categoryId = category
-          .toLowerCase()
-          .replace(/\s+/g, '-')
-          .replace(/[#+]/g, '');
+        const categoryId = this.normalizeCheckboxIdPart(category);
 
         return `
       <li class="mb-2">
@@ -226,10 +227,7 @@ export default class NavComponent extends HTMLElement {
           ${items
             .map((item) => {
               const safeItem = escapeHtml(item);
-              const itemId = `${categoryId}-${item
-                .toLowerCase()
-                .replace(/\s+/g, '-')
-                .replace(/[#+]/g, '')}`;
+              const itemId = `${categoryId}-${this.normalizeCheckboxIdPart(item)}`;
 
               return `
             <li class="rounded px-2 hover:text-blue-500 hover:dark:text-blue-500">

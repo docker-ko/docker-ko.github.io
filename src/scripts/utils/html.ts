@@ -37,26 +37,15 @@ export function sanitizeUrl(value: string, fallback: string = '#'): string {
     return fallback;
   }
 
-  if (
-    trimmedValue.startsWith('#') ||
-    trimmedValue.startsWith('/') ||
-    trimmedValue.startsWith('./') ||
-    trimmedValue.startsWith('../')
-  ) {
+  if (trimmedValue.startsWith('//')) {
+    return fallback;
+  }
+
+  const protocolMatch = trimmedValue.match(/^([a-z][a-z\d+.-]*):/i);
+  if (!protocolMatch) {
     return trimmedValue;
   }
 
-  try {
-    const baseUrl = window.location.href.startsWith('http')
-      ? window.location.href
-      : 'https://docker-ko.github.io/';
-    const parsedUrl = new URL(trimmedValue, baseUrl);
-    if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
-      return trimmedValue;
-    }
-  } catch {
-    // Invalid URLs fall back to a safe value
-  }
-
-  return fallback;
+  const protocol = protocolMatch[1].toLowerCase();
+  return protocol === 'http' || protocol === 'https' ? trimmedValue : fallback;
 }
