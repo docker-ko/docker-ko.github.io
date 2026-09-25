@@ -143,8 +143,17 @@ describe('initializeTableContents', () => {
 
       // Assert
       h2Elements.forEach((heading, index) => {
-        expect(heading.id).toBe(index.toString());
+        expect(heading.id).toBe(`toc-heading-${index}`);
       });
+    });
+
+    it('기존 헤딩 id가 있으면 유지됨', async () => {
+      const firstHeading = contentElement.querySelector('h2');
+      firstHeading!.id = 'existing-heading-id';
+
+      initializeTableContents();
+
+      expect(firstHeading!.id).toBe('existing-heading-id');
     });
 
     it('button 클릭 시 해당 섹션으로 스크롤 이동이 정확히 실행되는지 확인', async () => {

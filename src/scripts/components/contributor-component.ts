@@ -1,3 +1,5 @@
+import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+
 /**
  * ContributorComponent
  * 기여자 프로필을 카드 형식으로 표시하는 Web Component
@@ -20,20 +22,10 @@ export default class ContributorComponent extends HTMLElement {
     this.render();
   }
 
-  /**
-   * HTML 특수 문자를 이스케이프 처리
-   * XSS 공격 방지를 위한 보안 함수
-   */
-  private escapeHtml(text: string): string {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
   render() {
     const username = this.getAttribute('username');
     const avatar = this.getAttribute('avatar');
-    const role = this.escapeHtml(this.getAttribute('role') || '기여자');
+    const role = escapeHtml(this.getAttribute('role') || '기여자');
 
     // 빈 카드 모드 (username이 없으면 기여하기 카드)
     const isEmptyCard = !username;
@@ -139,10 +131,17 @@ export default class ContributorComponent extends HTMLElement {
         </a>
       `;
     } else {
-      const escapedUsername = this.escapeHtml(username);
-      const githubUrl = `https://github.com/${username}`;
-      const avatarUrl =
-        avatar || 'https://avatars.githubusercontent.com/u/0?v=4';
+      const escapedUsername = escapeHtml(username);
+      const usernameAttribute = escapeHtmlAttribute(username);
+      const githubUrl = escapeHtmlAttribute(
+        sanitizeUrl(`https://github.com/${username}`)
+      );
+      const avatarUrl = escapeHtmlAttribute(
+        sanitizeUrl(
+          avatar || 'https://avatars.githubusercontent.com/u/0?v=4',
+          'https://avatars.githubusercontent.com/u/0?v=4'
+        )
+      );
 
       this.innerHTML = `
         <a
@@ -150,7 +149,7 @@ export default class ContributorComponent extends HTMLElement {
           target="_blank"
           rel="noopener noreferrer"
           class="group block w-full"
-          aria-label="${username}의 GitHub 프로필 보기"
+          aria-label="${usernameAttribute}의 GitHub 프로필 보기"
         >
           <div class="
             relative
@@ -200,7 +199,7 @@ export default class ContributorComponent extends HTMLElement {
               ">
                 <img
                   src="${avatarUrl}"
-                  alt="${username}의 프로필 사진"
+                  alt="${usernameAttribute}의 프로필 사진"
                   class="h-20 w-20 object-cover"
                   loading="lazy"
                 />

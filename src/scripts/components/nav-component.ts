@@ -1,3 +1,5 @@
+import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+
 interface NavItem {
   name: string;
   docs_path?: string;
@@ -63,13 +65,16 @@ export default class NavComponent extends HTMLElement {
   private generateGetStartedNav(data: GetStartedData): string {
     return Object.entries(data)
       .map(([, item]) => {
+        const itemName = escapeHtml(item.name);
+        const hrefPath = escapeHtmlAttribute(sanitizeUrl(item.href_path));
+
         if (item.children) {
           return this.generateSectionWithChildren(item);
         } else {
           return `
           <li class="rounded px-2 hover:text-blue-500 hover:dark:text-blue-500">
-            <a class="block w-full truncate py-2" href="${item.href_path}">
-              ${item.name}
+            <a class="block w-full truncate py-2" href="${hrefPath}">
+              ${itemName}
             </a>
           </li>
         `;
@@ -79,9 +84,19 @@ export default class NavComponent extends HTMLElement {
   }
 
   private generateSectionWithChildren(item: NavItem): string {
+    const itemName = escapeHtml(item.name);
+    const hrefPath = item.href_path
+      ? escapeHtmlAttribute(sanitizeUrl(item.href_path))
+      : '';
     const childrenHtml = item.children
       ? Object.entries(item.children)
           .map(([, childItem]) => {
+            const childName = escapeHtml(childItem.name);
+            const childTitle = escapeHtmlAttribute(childItem.name);
+            const childHref = escapeHtmlAttribute(
+              sanitizeUrl(childItem.href_path)
+            );
+
             if (childItem.children) {
               // 3단계 중첩 (예: docker-concepts/the-basics/what-is-a-container)
               return this.generateNestedSection(childItem);
@@ -89,9 +104,9 @@ export default class NavComponent extends HTMLElement {
               return `
             <li class="rounded px-2 hover:text-blue-500 hover:dark:text-blue-500">
               <a class="block w-full truncate py-2" 
-                 href="${childItem.href_path}" 
-                 title="${childItem.name}">
-                ${childItem.name}
+                 href="${childHref}" 
+                 title="${childTitle}">
+               ${childName}
               </a>
             </li>
           `;
@@ -107,11 +122,11 @@ export default class NavComponent extends HTMLElement {
             ${
               item.href_path
                 ? `<a class="block select-none hover:text-blue-500 hover:dark:text-blue-500" 
-                 href="${item.href_path}">
-                ${item.name}
+                href="${hrefPath}">
+               ${itemName}
               </a>`
                 : `<span class="block select-none">
-                ${item.name}
+               ${itemName}
               </span>`
             }
           </div>
@@ -136,15 +151,19 @@ export default class NavComponent extends HTMLElement {
   }
 
   private generateNestedSection(item: NavItem): string {
+    const itemName = escapeHtml(item.name);
+    const hrefPath = item.href_path
+      ? escapeHtmlAttribute(sanitizeUrl(item.href_path))
+      : '';
     const childrenHtml = item.children
       ? Object.entries(item.children)
           .map(
             ([, childItem]) => `
         <li class="rounded px-2 hover:text-blue-500 hover:dark:text-blue-500">
           <a class="block w-full truncate py-2" 
-             href="${childItem.href_path}" 
-             title="${childItem.name}">
-            ${childItem.name}
+            href="${escapeHtmlAttribute(sanitizeUrl(childItem.href_path))}" 
+            title="${escapeHtmlAttribute(childItem.name)}">
+           ${escapeHtml(childItem.name)}
           </a>
         </li>
       `
@@ -159,11 +178,11 @@ export default class NavComponent extends HTMLElement {
             ${
               item.href_path
                 ? `<a class="block select-none hover:text-blue-500 hover:dark:text-blue-500" 
-                 href="${item.href_path}">
-                ${item.name}
+                href="${hrefPath}">
+               ${itemName}
               </a>`
                 : `<span class="block select-none">
-                ${item.name}
+               ${itemName}
               </span>`
             }
           </div>
@@ -191,31 +210,43 @@ export default class NavComponent extends HTMLElement {
 
   private generateGuidesNav(data: GuidesData): string {
     return Object.entries(data)
-      .map(
-        ([category, items]) => `
+      .map(([category, items]) => {
+        const safeCategory = escapeHtml(category);
+        const categoryId = category
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[#+]/g, '');
+
+        return `
       <li class="mb-2">
         <h3 class="mb-2 text-lg font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
-          ${category}
+          ${safeCategory}
         </h3>
         <ul class="ml-0">
           ${items
-            .map(
-              (item) => `
+            .map((item) => {
+              const safeItem = escapeHtml(item);
+              const itemId = `${categoryId}-${item
+                .toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/[#+]/g, '')}`;
+
+              return `
             <li class="rounded px-2 hover:text-blue-500 hover:dark:text-blue-500">
               <div class="flex items-center py-2">
-                <input type="checkbox" class="mr-2 rounded cursor-pointer" id="${category.toLowerCase()}-${item.toLowerCase().replace(/\s+/g, '-').replace(/[#+]/g, '')}">
-                <label class="block w-full truncate cursor-pointer" for="${category.toLowerCase()}-${item.toLowerCase().replace(/\s+/g, '-').replace(/[#+]/g, '')}">
-                  ${item}
+                <input type="checkbox" class="mr-2 rounded cursor-pointer" id="${escapeHtmlAttribute(itemId)}">
+                <label class="block w-full truncate cursor-pointer" for="${escapeHtmlAttribute(itemId)}">
+                  ${safeItem}
                 </label>
               </div>
             </li>
-          `
-            )
+          `;
+            })
             .join('')}
         </ul>
       </li>
-    `
-      )
+    `;
+      })
       .join('');
   }
 

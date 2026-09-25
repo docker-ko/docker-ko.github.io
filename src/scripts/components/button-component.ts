@@ -1,3 +1,5 @@
+import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+
 export default class ButtonComponent extends HTMLElement {
   static get observedAttributes() {
     return ['href', 'title'];
@@ -16,16 +18,19 @@ export default class ButtonComponent extends HTMLElement {
   }
 
   render() {
-    const href = this.getAttribute('href') || '#';
-    const title = this.getAttribute('title') || '';
+    const href = escapeHtmlAttribute(
+      sanitizeUrl(this.getAttribute('href') || '#')
+    );
+    const title = escapeHtml(this.getAttribute('title') || '');
 
     this.innerHTML = `
-            <button type="button" class="not-prose my-4">
-                <a href="${href}" class="cursor-pointer py-2 px-4 rounded bg-[#086dd7] hover:bg-[#2560ff] text-white!">
-                    ${title}
-                </a>
-            </button>
-        `;
+      <a
+        href="${href}"
+        class="not-prose my-4 inline-block cursor-pointer rounded bg-[#086dd7] px-4 py-2 text-white! hover:bg-[#2560ff]"
+      >
+        ${title}
+      </a>
+    `;
   }
 }
 

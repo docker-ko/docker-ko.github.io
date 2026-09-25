@@ -1,3 +1,5 @@
+import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+
 /**
  * HomeLinkCardComponent
  * 홈 화면에서 사용되는 링크 카드 Web Component
@@ -58,29 +60,21 @@ export default class HomeLinkCardComponent extends HTMLElement {
     return href.startsWith('http://') || href.startsWith('https://');
   }
 
-  /**
-   * HTML 특수 문자를 이스케이프 처리
-   * XSS 공격 방지를 위한 보안 함수
-   */
-  private escapeHtml(text: string): string {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
   render() {
-    const href = this.getAttribute('href') || '#';
+    const safeHref = sanitizeUrl(this.getAttribute('href') || '#');
+    const href = escapeHtmlAttribute(safeHref);
     const icon = this.getAttribute('icon') || 'rocket';
-    const title = this.escapeHtml(this.getAttribute('title') || '제목');
-    const description = this.escapeHtml(
-      this.getAttribute('description') || '설명'
-    );
+    const rawTitle = this.getAttribute('title') || '제목';
+    const title = escapeHtml(rawTitle);
+    const description = escapeHtml(this.getAttribute('description') || '설명');
 
-    const isExternal = this.isExternalLink(href);
+    const isExternal = this.isExternalLink(safeHref);
     const externalAttrs = isExternal
       ? 'target="_blank" rel="noopener noreferrer"'
       : '';
-    const ariaLabel = isExternal ? `${title} (새 창에서 열림)` : title;
+    const ariaLabel = escapeHtmlAttribute(
+      isExternal ? `${rawTitle} (새 창에서 열림)` : rawTitle
+    );
 
     this.innerHTML = `
       <a

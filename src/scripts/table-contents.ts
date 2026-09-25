@@ -106,8 +106,9 @@ export const initializeTableContents = (): void => {
       listItem.classList.add('pl-3');
     }
 
-    heading.id = `${index}`;
-    headingMap[heading.id] = listItem;
+    const headingId = heading.id || `toc-heading-${index}`;
+    heading.id = headingId;
+    headingMap[headingId] = listItem;
   });
 
   toc.appendChild(tocTitle);
