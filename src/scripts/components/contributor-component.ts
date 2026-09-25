@@ -22,6 +22,10 @@ export default class ContributorComponent extends HTMLElement {
     this.render();
   }
 
+  private normalizeGitHubUsername(username: string): string {
+    return username.replace(/[^a-zA-Z0-9-]/g, '') || 'docker-ko';
+  }
+
   render() {
     const username = this.getAttribute('username');
     const avatar = this.getAttribute('avatar');
@@ -133,9 +137,7 @@ export default class ContributorComponent extends HTMLElement {
     } else {
       const escapedUsername = escapeHtml(username);
       const usernameAttribute = escapeHtmlAttribute(username);
-      const githubProfileUrl = `https://github.com/${encodeURIComponent(
-        username
-      )}`;
+      const githubProfileUrl = `https://github.com/${this.normalizeGitHubUsername(username)}`;
       const githubUrl = escapeHtmlAttribute(sanitizeUrl(githubProfileUrl));
       const avatarUrl = escapeHtmlAttribute(
         sanitizeUrl(
