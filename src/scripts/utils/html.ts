@@ -13,10 +13,27 @@ export function escapeHtmlAttribute(value: string): string {
     .replace(/>/g, '&gt;');
 }
 
+function hasUnsafeProtocol(value: string): boolean {
+  const normalizedValue = value.trim().replace(/\s+/g, '').toLowerCase();
+  const protocolCandidate = normalizedValue
+    .replace(/^[#/]+/, '')
+    .replace(/^(\.\/|\.\.\/)+/, '');
+
+  return (
+    protocolCandidate.startsWith('javascript:') ||
+    protocolCandidate.startsWith('data:') ||
+    protocolCandidate.startsWith('vbscript:')
+  );
+}
+
 export function sanitizeUrl(value: string, fallback: string = '#'): string {
   const trimmedValue = value.trim();
 
   if (!trimmedValue) {
+    return fallback;
+  }
+
+  if (hasUnsafeProtocol(trimmedValue)) {
     return fallback;
   }
 

@@ -39,6 +39,9 @@ describe('html utils', () => {
 
   it('sanitizeUrl이 javascript 스킴을 차단함', () => {
     expect(sanitizeUrl('javascript:alert(1)')).toBe('#');
+    expect(sanitizeUrl('/#/javascript:alert(1)')).toBe('#');
+    expect(sanitizeUrl('./javascript:alert(1)')).toBe('#');
+    expect(sanitizeUrl('data:text/html,<script>alert(1)</script>')).toBe('#');
   });
 
   it('sanitizeUrl이 http/https URL은 허용함', () => {

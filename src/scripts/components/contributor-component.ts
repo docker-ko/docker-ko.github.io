@@ -133,9 +133,10 @@ export default class ContributorComponent extends HTMLElement {
     } else {
       const escapedUsername = escapeHtml(username);
       const usernameAttribute = escapeHtmlAttribute(username);
-      const githubUrl = escapeHtmlAttribute(
-        sanitizeUrl(`https://github.com/${username}`)
-      );
+      const githubProfileUrl = `https://github.com/${encodeURIComponent(
+        username
+      )}`;
+      const githubUrl = escapeHtmlAttribute(sanitizeUrl(githubProfileUrl));
       const avatarUrl = escapeHtmlAttribute(
         sanitizeUrl(
           avatar || 'https://avatars.githubusercontent.com/u/0?v=4',
