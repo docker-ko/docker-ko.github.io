@@ -52,4 +52,11 @@ describe('html utils', () => {
       'http://example.com/docs'
     );
   });
+
+  it('sanitizeUrl이 mailto/tel 스킴을 허용함', () => {
+    expect(sanitizeUrl('mailto:test@example.com')).toBe(
+      'mailto:test@example.com'
+    );
+    expect(sanitizeUrl('tel:+821012345678')).toBe('tel:+821012345678');
+  });
 });

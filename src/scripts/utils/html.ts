@@ -47,5 +47,7 @@ export function sanitizeUrl(value: string, fallback: string = '#'): string {
   }
 
   const protocol = protocolMatch[1].toLowerCase();
-  return protocol === 'http' || protocol === 'https' ? trimmedValue : fallback;
+  return ['http', 'https', 'mailto', 'tel'].includes(protocol)
+    ? trimmedValue
+    : fallback;
 }
