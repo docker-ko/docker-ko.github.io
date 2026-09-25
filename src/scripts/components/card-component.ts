@@ -1,4 +1,9 @@
-import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+import {
+  escapeHtml,
+  escapeHtmlAttribute,
+  sanitizeAssetUrl,
+  sanitizeUrl,
+} from '../utils/html';
 
 class CardComponent extends HTMLElement {
   static get observedAttributes() {
@@ -20,7 +25,7 @@ class CardComponent extends HTMLElement {
   render() {
     const imgSrc = this.getAttribute('imgsrc');
     const safeImgSrc = imgSrc
-      ? escapeHtmlAttribute(sanitizeUrl(imgSrc, ''))
+      ? escapeHtmlAttribute(sanitizeAssetUrl(imgSrc, ''))
       : null;
     const href = escapeHtmlAttribute(
       sanitizeUrl(this.getAttribute('href') || '#')

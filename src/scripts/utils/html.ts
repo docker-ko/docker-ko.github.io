@@ -41,13 +41,43 @@ export function sanitizeUrl(value: string, fallback: string = '#'): string {
     return fallback;
   }
 
+  if (
+    trimmedValue === '/' ||
+    trimmedValue.startsWith('#/') ||
+    trimmedValue.startsWith('/#/')
+  ) {
+    return trimmedValue;
+  }
+
   const protocolMatch = trimmedValue.match(/^([a-z][a-z\d+.-]*):/i);
   if (!protocolMatch) {
-    return trimmedValue;
+    return fallback;
   }
 
   const protocol = protocolMatch[1].toLowerCase();
   return ['http', 'https', 'mailto', 'tel'].includes(protocol)
     ? trimmedValue
     : fallback;
+}
+
+export function sanitizeAssetUrl(value: string, fallback: string = ''): string {
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue || hasUnsafeProtocol(trimmedValue)) {
+    return fallback;
+  }
+
+  if (
+    trimmedValue.startsWith('/') ||
+    trimmedValue.startsWith('./') ||
+    trimmedValue.startsWith('../') ||
+    !trimmedValue.match(/^([a-z][a-z\d+.-]*):/i)
+  ) {
+    return trimmedValue.startsWith('//') ? fallback : trimmedValue;
+  }
+
+  const protocol = trimmedValue
+    .match(/^([a-z][a-z\d+.-]*):/i)?.[1]
+    .toLowerCase();
+  return ['http', 'https'].includes(protocol || '') ? trimmedValue : fallback;
 }

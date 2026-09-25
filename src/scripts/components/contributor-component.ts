@@ -1,4 +1,9 @@
-import { escapeHtml, escapeHtmlAttribute, sanitizeUrl } from '../utils/html';
+import {
+  escapeHtml,
+  escapeHtmlAttribute,
+  sanitizeAssetUrl,
+  sanitizeUrl,
+} from '../utils/html';
 
 /**
  * ContributorComponent
@@ -140,7 +145,7 @@ export default class ContributorComponent extends HTMLElement {
       const githubProfileUrl = `https://github.com/${this.normalizeGitHubUsername(username)}`;
       const githubUrl = escapeHtmlAttribute(sanitizeUrl(githubProfileUrl));
       const avatarUrl = escapeHtmlAttribute(
-        sanitizeUrl(
+        sanitizeAssetUrl(
           avatar || 'https://avatars.githubusercontent.com/u/0?v=4',
           'https://avatars.githubusercontent.com/u/0?v=4'
         )

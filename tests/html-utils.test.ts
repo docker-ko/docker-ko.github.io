@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   escapeHtml,
   escapeHtmlAttribute,
+  sanitizeAssetUrl,
   sanitizeUrl,
 } from '../src/scripts/utils/html';
 import {
@@ -33,6 +34,7 @@ describe('html utils', () => {
   });
 
   it('sanitizeUrl이 안전한 내부 경로를 유지함', () => {
+    expect(sanitizeUrl('/')).toBe('/');
     expect(sanitizeUrl('/#/get-started')).toBe('/#/get-started');
     expect(sanitizeUrl('#/guides')).toBe('#/guides');
   });
@@ -58,5 +60,19 @@ describe('html utils', () => {
       'mailto:test@example.com'
     );
     expect(sanitizeUrl('tel:+821012345678')).toBe('tel:+821012345678');
+  });
+
+  it('sanitizeUrl이 비해시 상대 경로를 차단함', () => {
+    expect(sanitizeUrl('/docs/page')).toBe('#');
+    expect(sanitizeUrl('./page')).toBe('#');
+    expect(sanitizeUrl('foo/bar')).toBe('#');
+  });
+
+  it('sanitizeAssetUrl이 안전한 에셋 경로를 허용함', () => {
+    expect(sanitizeAssetUrl('images/foo.png')).toBe('images/foo.png');
+    expect(sanitizeAssetUrl('./images/foo.png')).toBe('./images/foo.png');
+    expect(sanitizeAssetUrl('https://example.com/image.png')).toBe(
+      'https://example.com/image.png'
+    );
   });
 });
