@@ -1,3 +1,10 @@
+import {
+  escapeHtml,
+  escapeHtmlAttribute,
+  sanitizeAssetUrl,
+  sanitizeUrl,
+} from '../utils/html';
+
 class CardComponent extends HTMLElement {
   static get observedAttributes() {
     return ['imgsrc', 'href', 'title', 'description'];
@@ -16,18 +23,25 @@ class CardComponent extends HTMLElement {
   }
 
   render() {
-    const imgSrc = this.getAttribute('imgsrc'); // 없으면 null
-    const href = this.getAttribute('href') || '#';
-    const title = this.getAttribute('title') || '';
-    const description = this.getAttribute('description') || '';
+    const imgSrc = this.getAttribute('imgsrc');
+    const safeImgSrc = imgSrc
+      ? escapeHtmlAttribute(sanitizeAssetUrl(imgSrc, ''))
+      : null;
+    const href = escapeHtmlAttribute(
+      sanitizeUrl(this.getAttribute('href') || '#')
+    );
+    const rawTitle = this.getAttribute('title') || '';
+    const title = escapeHtml(rawTitle);
+    const titleAttribute = escapeHtmlAttribute(rawTitle);
+    const description = escapeHtml(this.getAttribute('description') || '');
 
     this.innerHTML = `
       <div class="card">
         <a href="${href}" class="card-link">
           ${
-            imgSrc
+            safeImgSrc
               ? `<div class="card-icon">
-                <img class="card-img" src="${imgSrc}" alt="${title}" />
+               <img class="card-img" src="${safeImgSrc}" alt="${titleAttribute}" />
               </div>`
               : ''
           }
